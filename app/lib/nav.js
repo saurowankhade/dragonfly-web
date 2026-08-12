@@ -11,8 +11,8 @@ export const VIEWS = [
 export const releases = [
   {
     version: "0.0.6",
-    date: "August 12, 2026",
-    iso: "2026-08-12",
+    date: "August 10, 2026",
+    iso: "2026-08-10",
     tag: "Latest",
     changes: [
       "Express route discovery now follows nested and Router-level routes.",
@@ -32,17 +32,17 @@ export const releases = [
   },
   {
     version: "0.0.4",
-    date: "August 8, 2026",
-    iso: "2026-08-08",
+    date: "August 10, 2026",
+    iso: "2026-08-10",
     changes: [
-      "OpenAPI 3.1 import, grouped into folders by tag.",
+      "Grouped into folders by tag.",
       "Copy any request as Go or Rust.",
     ],
   },
   {
     version: "0.0.3",
-    date: "August 6, 2026",
-    iso: "2026-08-06",
+    date: "August 7, 2026",
+    iso: "2026-08-07",
     changes: [
       "Environments with {{variables}} shared across requests.",
       "Tokens moved into VS Code secure storage.",
@@ -50,8 +50,8 @@ export const releases = [
   },
   {
     version: "0.0.2",
-    date: "August 4, 2026",
-    iso: "2026-08-04",
+    date: "August 6, 2026",
+    iso: "2026-08-06",
     changes: [
       "Import Thunder Client and Insomnia collections.",
       "Request history saved to the Activity view.",
@@ -59,8 +59,8 @@ export const releases = [
   },
   {
     version: "0.0.1",
-    date: "August 2, 2026",
-    iso: "2026-08-02",
+    date: "August 6, 2026",
+    iso: "2026-08-06",
     tag: "First beta",
     changes: [
       "First public beta on the VS Code Marketplace.",
