@@ -54,10 +54,13 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-:focus-visible {
-  outline: 2px solid var(--color-brand);
-  outline-offset: 2px;
-  border-radius: 4px;
+@layer base {
+  /* Accessible keyboard-focus ring. Lives in @layer base so elements that
+     opt out with `outline-none` (inputs styled via focus:border-brand) win. */
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+  }
 }
 
 /* Every interactive control shows a pointer cursor. */

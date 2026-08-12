@@ -60,6 +60,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@saurowankhade",
+    creator: "@saurowankhade",
     title: "Dragonfly: REST API Client for VS Code",
     description:
       "Send requests and auto-discover Express and Next.js routes, without leaving your editor.",
@@ -88,6 +90,12 @@ const jsonLd = {
       name: "Dragonfly",
       url: SITE_URL,
       logo: `${SITE_URL}/dragonfly.png`,
+      sameAs: [
+        "https://x.com/saurowankhade",
+        "https://linkedin.com/in/saurowankhade",
+        "https://peerlist.io/saurowankhade",
+        "https://sauro.dev",
+      ],
     },
     {
       "@type": "WebSite",
@@ -163,6 +171,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
       <body>
+        {/* Discovery hints (hoisted into <head> by Next): sitemap + llms.txt */}
+        <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+        <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

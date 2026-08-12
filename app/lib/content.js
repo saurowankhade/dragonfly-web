@@ -114,22 +114,54 @@ export function llmsTxt() {
 > foldered to match your project. Everything stays on the user's machine: no
 > account, no server, no telemetry.
 
-## Pages
+## What it does
 
-- [Overview](${SITE_URL}/welcome.md): what Dragonfly does, features, comparison, FAQ.
-- [Try a request](${SITE_URL}/dragonfly.md): the in-editor request builder and how to test an API.
-- [Changelog](${SITE_URL}/changelog.md): release notes (also available as RSS at ${SITE_URL}/rss.xml).
+Most API clients hand you an empty request and let you type the URL yourself.
+Dragonfly reads your project first: run a scan and it picks up your Express and
+Next.js routes (App Router and Pages Router), then turns them into a collection
+foldered to match your codebase, so the endpoints you already wrote are ready to
+send. The response opens next to your code with its status, size and timing.
+Everything stays on your machine. No account, no sign-in, no paid tier.
+
+## Features
+
+${FEATURES.map((f) => `- ${f}`).join("\n")}
+
+## Auth and code export
+
+Auth types are Bearer Token, API Key and Basic Auth. The secret half of each is
+stored in VS Code secure storage, never written into a collection file. Any
+request can be copied out as cURL, Node.js, Python, Go, PHP, Java or Rust.
+
+## How it compares
+
+Dragonfly runs in the VS Code sidebar, builds requests by scanning your Express
+and Next.js code, keeps auth secrets in VS Code secure storage, and is free and
+MIT licensed. Postman is a separate app with sign-in and paid plans; Thunder
+Client and Insomnia do not read your code to build requests.
+
+## FAQ
+
+${FAQS.map(([q, a]) => `### ${q}\n${a}`).join("\n\n")}
 
 ## Install
 
 - VS Code Marketplace: ${MARKETPLACE}
 - Quick Open: ${INSTALL_CMD}
 
+## Pages
+
+- [Overview](${SITE_URL}/welcome.md): what Dragonfly does, features, comparison, FAQ.
+- [Try a request](${SITE_URL}/dragonfly.md): the in-editor request builder and how to test an API.
+- [Changelog](${SITE_URL}/changelog.md): release notes (also available as RSS at ${SITE_URL}/rss.xml).
+
 ## Key facts
 
 - Category: developer tool, VS Code extension, REST API client, Postman alternative.
 - Differentiators: builds requests by scanning Express and Next.js code; collection folders mirror your codebase; auth secrets in VS Code secure storage; free and MIT licensed.
 - Imports: Postman, Thunder Client, Insomnia, HAR, OpenAPI/Swagger, cURL.
+- Pricing: free, no paid tier, no telemetry, MIT licensed.
+- Platform: Visual Studio Code (Marketplace ID saurabhwankhade.dragonfly).
 - Contact: saurowankhade@gmail.com
 `;
 }
