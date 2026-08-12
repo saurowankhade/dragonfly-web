@@ -124,7 +124,7 @@ export default function RequestPlayground() {
   return (
     <div className="overflow-hidden rounded-xl border border-line2 bg-bg">
       {/* request bar */}
-      <div id="request" className="flex scroll-mt-24 flex-wrap items-center gap-2 border-b border-line p-3">
+      <div id="request" className="flex scroll-mt-24 items-center gap-2 border-b border-line p-3">
         <select
           value={method}
           onChange={(e) => choose(e.target.value)}
@@ -232,7 +232,7 @@ export default function RequestPlayground() {
 
         {/* response */}
         <div id="response" className="min-w-0 scroll-mt-24 border-t border-line lg:border-t-0">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 border-b border-line bg-panel px-3.5 py-2 font-mono text-xs">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 border-b border-line bg-panel px-3.5 py-3.25 font-mono text-xs">
             <span className="uppercase tracking-wider text-faint">Response</span>
             {phase === "done" && res ? (
               <>

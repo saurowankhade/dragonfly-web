@@ -15,7 +15,7 @@ export default function DragonflyPage() {
         <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
           Build a request and send it.
         </h1>
-        <p className="mt-4 max-w-[60ch] text-base text-inksoft sm:text-lg">
+        <p className="mt-4 text-base text-inksoft sm:text-lg">
           This is the same flow you get inside VS Code. Choose a method, set the
           URL, and press Send. The response comes back inline with its status,
           size and timing. In the extension it saves to a collection and runs

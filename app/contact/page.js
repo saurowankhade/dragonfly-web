@@ -15,7 +15,7 @@ export default function ContactPage() {
         <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
           Found a bug, or have an idea?
         </h1>
-        <p className="mt-4 max-w-[60ch] text-base text-inksoft sm:text-lg">
+        <p className="mt-4 text-base text-inksoft sm:text-lg">
           Dragonfly is in beta and built in the open. Send a bug report, a
           feature request, or just say hello. It goes straight to the maker.
         </p>

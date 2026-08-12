@@ -71,7 +71,7 @@ export const OUTLINES = {
     { id: "difference", label: "The difference" },
     { id: "features", label: "Features" },
     { id: "importing", label: "Importing" },
-    { id: "compare", label: "How it compares" },
+    { id: "compare", label: "Comparison" },
     { id: "faq", label: "FAQ" },
   ],
   "/dragonfly": [

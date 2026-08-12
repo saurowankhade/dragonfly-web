@@ -12,7 +12,7 @@ export default function ChangelogPage() {
     <section>
       <p className="font-mono text-sm text-comment">{"// changelog.md"}</p>
       <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">Changelog</h1>
-      <p className="mt-4 max-w-[60ch] text-base text-inksoft sm:text-lg">
+      <p className="mt-4 text-base text-inksoft sm:text-lg">
         What has shipped so far. Dragonfly is early, so this list grows quickly.
       </p>
 

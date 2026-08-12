@@ -71,7 +71,11 @@ export default function Shell({ children }) {
                   on ? "bg-vscselect text-ink" : "text-inksoft hover:bg-panel2"
                 }`}
               >
-                <Icon size={16} />
+                {v.icon === "dragonfly" ? (
+                  <Image src="/dragonfly.png" alt="" width={16} height={16} className="rounded-sm" />
+                ) : (
+                  <Icon size={16} />
+                )}
                 {v.label}
               </Link>
             );
@@ -113,7 +117,11 @@ export default function Shell({ children }) {
                     on ? "border-brand text-ink" : "border-transparent text-muted hover:text-ink"
                   }`}
                 >
-                  <Icon size={22} />
+                  {v.icon === "dragonfly" ? (
+                    <Image src="/dragonfly.png" alt="" width={24} height={24} className="rounded" />
+                  ) : (
+                    <Icon size={22} />
+                  )}
                   <span className="pointer-events-none absolute left-[46px] top-1/2 z-50 hidden -translate-y-1/2 whitespace-nowrap rounded-md border border-line2 bg-bg px-2 py-1 text-xs text-ink group-hover:block">
                     {v.label}
                   </span>
@@ -223,7 +231,7 @@ function Tab({ view, active, showClose }) {
       }`}
     >
       {isDragonfly ? (
-        <DragonflyIcon size={13} className="text-ink" />
+        <Image src="/dragonfly.png" alt="" width={14} height={14} className="rounded-sm" />
       ) : (
         <FileIcon size={14} className="text-[#519aba]" />
       )}

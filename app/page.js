@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import CopyCommand from "./components/CopyCommand";
-import { CheckIcon, DragonflyIcon } from "./components/icons";
+import { CheckIcon } from "./components/icons";
 
 export const metadata = {
   title: "REST API Client for VS Code",
@@ -89,7 +89,7 @@ export default function Home() {
             <p className="mt-1.5 font-mono text-base text-muted">REST API client for VS Code</p>
           </div>
         </div>
-        <p className="mt-6 max-w-[58ch] text-lg text-inksoft">
+        <p className="mt-6 text-lg text-inksoft">
           Send HTTP requests, keep them in collections, and let Dragonfly read
           your Express and Next.js code to build the requests for you. One
           editor, no second app, and nothing ever leaves your machine.
@@ -126,11 +126,11 @@ export default function Home() {
 
       {/* the difference */}
       <section id="difference" className="mt-[clamp(2.5rem,5vw,4rem)] scroll-mt-24 border-t border-line pt-[clamp(2.25rem,4vw,3.25rem)]">
-        <h2 className="max-w-[26ch] text-2xl font-semibold tracking-tight sm:text-3xl">
+        <h2 className=" text-2xl font-semibold tracking-tight sm:text-3xl">
           <span className="mr-1 font-mono font-normal text-brand">#</span>
           Other clients start empty. Dragonfly starts from your code.
         </h2>
-        <p className="mt-4 max-w-[60ch] text-base text-inksoft sm:text-lg">
+        <p className="mt-4 text-base text-inksoft sm:text-lg">
           Most API clients hand you a blank request and wait for a URL. Run{" "}
           <code className="rounded border border-line bg-panel px-1.5 py-0.5 font-mono text-[0.85em] text-brandink">
             Scan Workspace for Routes
@@ -171,13 +171,13 @@ export default function Home() {
 
       {/* features */}
       <section id="features" className="mt-[clamp(2.5rem,5vw,4rem)] scroll-mt-24 border-t border-line pt-[clamp(2.25rem,4vw,3.25rem)]">
-        <h2 className="max-w-[26ch] text-2xl font-semibold tracking-tight sm:text-3xl">
+        <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
           <span className="mr-1 font-mono font-normal text-brand">#</span>
           A complete client, not a cut down one.
         </h2>
         <div className="mt-[clamp(1.5rem,4vw,2.25rem)] grid gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2">
           {features.map((f) => (
-            <article key={f.key} className="bg-bg p-6">
+            <article key={f.key} className="bg-bg py-6 px-4 md:px-6">
               <p className="font-mono text-sm text-brandink">&quot;{f.key}&quot;:</p>
               <h3 className="mt-1.5 text-lg font-semibold">{f.title}</h3>
               <p className="mt-2 text-base text-muted">{f.body}</p>
@@ -188,11 +188,11 @@ export default function Home() {
 
       {/* importing */}
       <section id="importing" className="mt-[clamp(2.5rem,5vw,4rem)] scroll-mt-24 border-t border-line pt-[clamp(2.25rem,4vw,3.25rem)]">
-        <h2 className="max-w-[26ch] text-2xl font-semibold tracking-tight sm:text-3xl">
+        <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
           <span className="mr-1 font-mono font-normal text-brand">#</span>
           Bring the work you already have.
         </h2>
-        <p className="mt-4 max-w-[60ch] text-base text-inksoft sm:text-lg">
+        <p className="mt-4 text-base text-inksoft sm:text-lg">
           One Import command detects the format and pulls in folders, headers,
           params, bodies and environments intact, so{" "}
           <code className="rounded border border-line bg-panel px-1.5 py-0.5 font-mono text-[0.85em] text-brandink">
@@ -213,8 +213,8 @@ export default function Home() {
           href="/dragonfly"
           className="mt-[clamp(1.5rem,3vw,2rem)] flex items-center gap-3 rounded-xl border border-line2 bg-panel p-4 hover:border-brand"
         >
-          <span className="grid h-10 w-10 flex-none place-items-center rounded-lg bg-brandsoft text-brand">
-            <DragonflyIcon size={22} />
+          <span className="grid h-10 w-10 flex-none place-items-center overflow-hidden rounded-lg bg-brandsoft">
+            <Image src="/dragonfly.png" alt="" width={28} height={28} className="rounded" />
           </span>
           <span className="flex-1">
             <span className="block font-medium text-ink">Try a request now</span>
@@ -228,16 +228,16 @@ export default function Home() {
 
       {/* compare */}
       <section id="compare" className="mt-[clamp(2.5rem,5vw,4rem)] scroll-mt-24 border-t border-line pt-[clamp(2.25rem,4vw,3.25rem)]">
-        <h2 className="max-w-[26ch] text-2xl font-semibold tracking-tight sm:text-3xl">
+        <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
           <span className="mr-1 font-mono font-normal text-brand">#</span>
           How it compares.
         </h2>
-        <p className="mt-4 max-w-[60ch] text-base text-inksoft sm:text-lg">
+        <p className="mt-4 text-base text-inksoft sm:text-lg">
           Postman, Thunder Client and Insomnia are all good tools. Here is where
           Dragonfly is different, and where it overlaps.
         </p>
         <div className="mt-[clamp(1.5rem,4vw,2.25rem)] overflow-x-auto rounded-lg border border-line">
-          <table className="w-full min-w-[620px] border-collapse text-sm">
+          <table className="w-full min-w-155 border-collapse text-sm">
             <thead>
               <tr className="border-b border-line bg-panel text-left">
                 <th className="px-4 py-3 font-medium text-muted">Feature</th>
@@ -268,7 +268,7 @@ export default function Home() {
 
       {/* faq */}
       <section id="faq" className="mt-[clamp(2.5rem,5vw,4rem)] scroll-mt-24 border-t border-line pt-[clamp(2.25rem,4vw,3.25rem)]">
-        <h2 className="max-w-[26ch] text-2xl font-semibold tracking-tight sm:text-3xl">
+        <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
           <span className="mr-1 font-mono font-normal text-brand">#</span>
           Questions, answered plainly.
         </h2>
@@ -280,28 +280,12 @@ export default function Home() {
                 <span className="absolute right-0.5 top-1/2 -translate-y-1/2 font-mono text-xl text-muted group-open:hidden">+</span>
                 <span className="absolute right-0.5 top-1/2 hidden -translate-y-1/2 font-mono text-xl text-muted group-open:inline">–</span>
               </summary>
-              <p className="mb-4 max-w-[68ch] text-muted">{f.a}</p>
+              <p className="mb-4 text-muted">{f.a}</p>
             </details>
           ))}
         </div>
       </section>
 
-      {/* final cta */}
-      <section className="mt-[clamp(2.5rem,5vw,4rem)] rounded-xl border border-line2 bg-panel py-[clamp(2rem,5vw,3.25rem)] px-4 md:px-[clamp(2rem,5vw,3.25rem)]">
-        <h2 className="md:max-w-[22ch] text-xl font-semibold sm:text-2xl">
-          Send your first request in under a minute.
-        </h2>
-        <p className="mt-2.5 max-w-[48ch] text-muted">
-          Free, local, and open source. Install Dragonfly and open it from the
-          Activity Bar.
-        </p>
-        <div className="mt-6 grid grid-cols-2 md:flex items-center gap-3">
-          <a href={MARKETPLACE} target="_blank" className="btn">
-            Install
-          </a>
-          <CopyCommand command={INSTALL_CMD} />
-        </div>
-      </section>
     </>
   );
 }
