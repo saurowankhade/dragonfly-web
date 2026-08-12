@@ -87,6 +87,14 @@ export function ChevronDownIcon(props) {
   );
 }
 
+export function ArrowRightIcon(props) {
+  return (
+    <Svg {...props}>
+      <path d="M5 12h14M13 6l6 6-6 6" />
+    </Svg>
+  );
+}
+
 export function FileIcon(props) {
   return (
     <Svg {...props}>

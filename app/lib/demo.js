@@ -51,7 +51,7 @@ export const RESPONSES = {
     path: "api/collections/42",
     status: "204 No Content",
     time: "22 ms",
-    body: "// 204 No Content — the collection was removed.",
+    body: "// 204 No Content, the collection was removed.",
   },
 };
 

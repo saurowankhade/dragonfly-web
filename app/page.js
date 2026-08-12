@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import CopyCommand from "./components/CopyCommand";
-import { CheckIcon } from "./components/icons";
+import { CheckIcon, ArrowRightIcon } from "./components/icons";
 
 export const metadata = {
   title: "REST API Client for VS Code",
@@ -104,7 +104,7 @@ export default function Home() {
           <CopyCommand command={INSTALL_CMD} />
         </div>
         <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
-          {["Free, no paid tier", "No account, no sign in", "Runs on your machine", "MIT licensed"].map((t) => (
+          {["Free, no paid tier", "No account, no sign in", "Runs on your machine"].map((t) => (
             <li key={t} className="inline-flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-green" />
               {t}
@@ -222,7 +222,9 @@ export default function Home() {
               Open the Dragonfly tab, pick a method, and press Send.
             </span>
           </span>
-          <span className="font-mono text-sm text-brandink">open →</span>
+          <span className="inline-flex items-center gap-1 font-mono text-sm text-brandink">
+            open <ArrowRightIcon size={15} />
+          </span>
         </Link>
       </section>
 
@@ -253,7 +255,7 @@ export default function Home() {
                   <td className="px-4 py-3 text-inksoft">{row.label}</td>
                   {["df", "postman", "thunder", "insomnia"].map((col) => (
                     <td key={col} className={`border-l border-line px-4 py-3 ${col === "df" ? "bg-brandsoft/50" : ""}`}>
-                      {row[col] ? <CheckIcon size={17} className="text-greenink" /> : <span className="text-faint">—</span>}
+                      {row[col] ? <CheckIcon size={17} className="text-greenink" /> : <span className="text-faint">–</span>}
                     </td>
                   ))}
                 </tr>
@@ -284,6 +286,25 @@ export default function Home() {
             </details>
           ))}
         </div>
+      </section>
+
+      {/* contact */}
+      <section id="contact" className="mt-[clamp(2.5rem,5vw,4rem)] scroll-mt-24 border-t border-line pt-[clamp(2.25rem,4vw,3.25rem)]">
+        <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+          <span className="mr-1 font-mono font-normal text-brand">#</span>
+          Found a bug, or have an idea?
+        </h2>
+        <p className="mt-4 text-base text-inksoft sm:text-lg">
+          Dragonfly is in beta and built in the open. Send a bug report, a
+          feature request, or just say hello at{" "}
+          <a
+            href="mailto:saurowankhade@gmail.com?subject=Dragonfly"
+            className="font-medium text-brand underline decoration-line2 underline-offset-4 hover:decoration-brand"
+          >
+            saurowankhade@gmail.com
+          </a>
+          .
+        </p>
       </section>
 
     </>

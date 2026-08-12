@@ -1,6 +1,6 @@
 const SITE_URL = "https://dragonfly.dev";
 
-const paths = ["", "/dragonfly", "/changelog", "/contact"];
+const paths = ["", "/dragonfly", "/changelog"];
 
 export default function sitemap() {
   const now = new Date();

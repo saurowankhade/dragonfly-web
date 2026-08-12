@@ -7,7 +7,6 @@ import {
   ExplorerIcon,
   DragonflyIcon,
   HistoryIcon,
-  MailIcon,
   DownloadIcon,
   ChevronDownIcon,
   CloseIcon,
@@ -26,7 +25,6 @@ const ICONS = {
   explorer: ExplorerIcon,
   dragonfly: DragonflyIcon,
   history: HistoryIcon,
-  mail: MailIcon,
 };
 
 export default function Shell({ children }) {
@@ -46,7 +44,7 @@ export default function Shell({ children }) {
         </div>
         <div className="flex flex-1 items-center justify-center gap-1.5 overflow-hidden whitespace-nowrap text-sm text-muted">
           <Image src="/dragonfly.png" alt="" width={16} height={16} className="flex-none rounded-sm" />
-          <span className="truncate">{active.file} — Dragonfly — Visual Studio Code</span>
+          <span className="truncate">{active.file} - Dragonfly - Visual Studio Code</span>
         </div>
         <a
           href={MARKETPLACE}
@@ -143,7 +141,7 @@ export default function Shell({ children }) {
           </a>
         </nav>
 
-        {/* Explorer — shows the OPEN FILE's outline (its h2 headings) */}
+        {/* Explorer: shows the OPEN FILE's outline (its h2 headings) */}
         <aside className="sticky top-9 hidden h-[calc(100dvh-58px)] flex-col overflow-y-auto border-r border-line bg-panel lg:flex">
           <div className="px-4 pb-1 pt-3 text-[0.68rem] uppercase tracking-[0.08em] text-muted">
             Outline
@@ -185,7 +183,7 @@ export default function Shell({ children }) {
             </span>
           </div>
 
-          <main className="w-full max-w-225 px-4 md:px-[clamp(1rem,4vw,3rem)] pb-[clamp(3rem,6vw,5rem)] pt-[clamp(1.5rem,4vw,3.25rem)]">
+          <main className="w-full max-w-240 px-4 md:px-[clamp(1rem,4vw,3rem)] pb-[clamp(3rem,6vw,5rem)] pt-[clamp(1.5rem,4vw,3.25rem)]">
             {children}
           </main>
         </div>

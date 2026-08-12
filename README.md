@@ -35,17 +35,17 @@ storage instead of a JSON file, and the extension itself never talks to a server
 
 ## Features
 
-- **Request builder** — method, URL, params, headers, body and auth, docked in the Activity Bar
-- **Route discovery** — scan a workspace for Express and Next.js routes (App Router and Pages Router) and build a collection from them, then re-scan to pick up new or deleted routes
-- **Collection import** — bring over Postman (v1 and v2), Thunder Client, Insomnia or a HAR capture, with folders, requests, headers, query params and bodies intact. One **Import Collection** command detects the format for you
-- **Environment import** — Postman, Thunder Client and Insomnia environments come across, so `{{baseUrl}}` in an imported request actually resolves
-- **OpenAPI and Swagger import** — one request per operation, grouped into folders by tag, with path params turned into `{{variables}}`
-- **cURL import** — paste a cURL command from Postman, browser devtools, Swagger UI or a docs page, and the form fills itself in
-- **Collections** — save and organize requests, with folders and search
-- **Environments** — `{{variable}}` substitution across requests, one click to switch
-- **Auth** — Bearer Token, API Key and Basic Auth, with the secret half kept in VS Code's secure storage
-- **Code snippets** — copy any request out as cURL, Node.js, Python, Go, PHP, Java or Rust
-- **Request history** — every request you send is saved to Activity, ready to open again or resend
+- **Request builder**: method, URL, params, headers, body and auth, docked in the Activity Bar
+- **Route discovery**: scan a workspace for Express and Next.js routes (App Router and Pages Router) and build a collection from them, then re-scan to pick up new or deleted routes
+- **Collection import**: bring over Postman (v1 and v2), Thunder Client, Insomnia or a HAR capture, with folders, requests, headers, query params and bodies intact. One **Import Collection** command detects the format for you
+- **Environment import**: Postman, Thunder Client and Insomnia environments come across, so `{{baseUrl}}` in an imported request actually resolves
+- **OpenAPI and Swagger import**: one request per operation, grouped into folders by tag, with path params turned into `{{variables}}`
+- **cURL import**: paste a cURL command from Postman, browser devtools, Swagger UI or a docs page, and the form fills itself in
+- **Collections**: save and organize requests, with folders and search
+- **Environments**: `{{variable}}` substitution across requests, one click to switch
+- **Auth**: Bearer Token, API Key and Basic Auth, with the secret half kept in VS Code's secure storage
+- **Code snippets**: copy any request out as cURL, Node.js, Python, Go, PHP, Java or Rust
+- **Request history**: every request you send is saved to Activity, ready to open again or resend
 
 ## Getting started
 

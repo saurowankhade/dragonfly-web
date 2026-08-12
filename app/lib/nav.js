@@ -6,7 +6,6 @@ export const VIEWS = [
   { href: "/", label: "Explorer", file: "welcome.md", ext: "md", icon: "explorer" },
   { href: "/dragonfly", label: "Dragonfly", file: "new-request.http", ext: "http", icon: "dragonfly" },
   { href: "/changelog", label: "Changelog", file: "changelog.md", ext: "md", icon: "history" },
-  { href: "/contact", label: "Contact", file: "contact.md", ext: "md", icon: "mail" },
 ];
 
 export const releases = [
@@ -73,11 +72,11 @@ export const OUTLINES = {
     { id: "importing", label: "Importing" },
     { id: "compare", label: "Comparison" },
     { id: "faq", label: "FAQ" },
+    { id: "contact", label: "Contact" },
   ],
   "/dragonfly": [
     { id: "request", label: "Request" },
     { id: "response", label: "Response" },
   ],
   "/changelog": releases.map((r) => ({ id: versionId(r.version), label: "v" + r.version })),
-  "/contact": [{ id: "message", label: "Message" }],
 };
