@@ -6,7 +6,7 @@ import { CheckIcon, ArrowRightIcon } from "./components/icons";
 export const metadata = {
   title: "REST API Client for VS Code",
   description:
-    "Dragonfly is a REST API client built into VS Code. Send requests, save collections, import from Postman and OpenAPI, and turn your Express and Next.js routes into ready-to-run requests.",
+    "A REST API client built into VS Code. Send requests, save collections, import from Postman and OpenAPI, and scan your Express and Next.js routes.",
   alternates: { canonical: "/" },
 };
 
@@ -47,11 +47,11 @@ const sources = [
 ];
 
 const compareRows = [
-  { label: "Runs inside VS Code", df: true, postman: false, thunder: true, insomnia: false },
+  { label: "Runs inside VS Code", df: true, postman: true, thunder: true, insomnia: false },
   { label: "Builds requests by scanning your code (Express & Next.js)", df: true, postman: false, thunder: false, insomnia: false },
   { label: "Collections foldered to match your codebase structure", df: true, postman: false, thunder: false, insomnia: false },
   { label: "Auth secrets kept in VS Code secure storage", df: true, postman: false, thunder: false, insomnia: false },
-  { label: "Import Postman, Insomnia, HAR, OpenAPI & cURL", df: true, postman: true, thunder: true, insomnia: true },
+  { label: "Import Postman, OpenAPI & cURL", df: true, postman: true, thunder: true, insomnia: true },
   { label: "Environments with {{variables}}", df: true, postman: true, thunder: true, insomnia: true },
   { label: "Copy any request as code (cURL, Python, Go, +)", df: true, postman: true, thunder: true, insomnia: true },
   { label: "Request history built in", df: true, postman: true, thunder: true, insomnia: true },

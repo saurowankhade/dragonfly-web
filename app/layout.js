@@ -25,7 +25,7 @@ export const metadata = {
     template: "%s | Dragonfly",
   },
   description:
-    "A REST API client that runs inside VS Code. Send HTTP requests, organize collections, import from Postman, Thunder Client, Insomnia, HAR, OpenAPI and cURL, and scan your Express and Next.js code for routes. Free, local, no account.",
+    "A REST API client inside VS Code. Send requests, organize collections, import from Postman, OpenAPI and cURL, and scan Express and Next.js routes.",
   keywords: [
     "vs code rest client",
     "api client for vs code",

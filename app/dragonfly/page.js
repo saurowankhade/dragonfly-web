@@ -4,9 +4,9 @@ const MARKETPLACE =
   "https://marketplace.visualstudio.com/items?itemName=saurabhwankhade.dragonfly";
 
 export const metadata = {
-  title: "Playground — try a request",
+  title: "Playground: try a request",
   description:
-    "An interactive playground for Dragonfly. Pick a method, set a URL, add params, headers, body and auth, press Send, and read the response, the same way it works inside VS Code.",
+    "Interactive Dragonfly playground: pick a method, set a URL, add headers, body and auth, press Send, and read the response, right in your browser.",
   alternates: { canonical: "/dragonfly" },
 };
 
