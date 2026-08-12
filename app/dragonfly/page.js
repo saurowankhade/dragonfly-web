@@ -1,35 +1,47 @@
 import RequestPlayground from "../components/RequestPlayground";
 
+const MARKETPLACE =
+  "https://marketplace.visualstudio.com/items?itemName=saurabhwankhade.dragonfly";
+
 export const metadata = {
-  title: "Try a request",
+  title: "Playground — try a request",
   description:
-    "Try the Dragonfly request flow. Pick a method, set a URL, press Send, and read the response, the same way it works inside VS Code.",
+    "An interactive playground for Dragonfly. Pick a method, set a URL, add params, headers, body and auth, press Send, and read the response, the same way it works inside VS Code.",
   alternates: { canonical: "/dragonfly" },
 };
 
 export default function DragonflyPage() {
   return (
-    <>
-      <section>
+    <section>
+      <div className="flex flex-wrap items-center gap-3">
         <p className="font-mono text-sm text-comment">{"// new-request.http"}</p>
-        <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-          Build a request and send it.
+        <span className="rounded-full border border-line2 bg-brandsoft px-2.5 py-0.5 font-mono text-xs text-brandink">
+          Playground
+        </span>
+      </div>
+      <div className="mt-3 flex flex-wrap items-center justify-between gap-4">
+        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+          Try a request, right here in the browser.
         </h1>
-        <p className="mt-4 text-base text-inksoft sm:text-lg">
-          This is the same flow you get inside VS Code. Choose a method, set the
-          URL, and press Send. The response comes back inline with its status,
-          size and timing. In the extension it saves to a collection and runs
-          against your real endpoints.
-        </p>
+        <a href={MARKETPLACE} target="_blank" className="btn btn-outline flex-none">
+          Install Dragonfly
+        </a>
+      </div>
+      <p className="mt-4 text-base text-inksoft sm:text-lg">
+        This is a live playground for the Dragonfly request builder. Choose a
+        method, set the URL, add params, headers, a body and auth, then press
+        Send. The response comes back inline with its status, size and timing,
+        the same flow you get inside VS Code, where it saves to a collection and
+        runs against your real endpoints.
+      </p>
 
-        <div className="mt-[clamp(1.5rem,4vw,2.25rem)]">
-          <RequestPlayground />
-        </div>
+      <div className="mt-[clamp(1.5rem,4vw,2.25rem)]">
+        <RequestPlayground />
+      </div>
 
-        <p className="mt-4 font-mono text-xs text-faint">
-          Preview data is hardcoded per method. Nothing leaves the page.
-        </p>
-      </section>
-    </>
+      <p className="mt-4 font-mono text-xs text-faint">
+        Playground responses are hardcoded per method. Nothing leaves the page.
+      </p>
+    </section>
   );
 }

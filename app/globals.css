@@ -104,4 +104,16 @@ label,
     border-color: var(--color-ink);
     color: var(--color-ink);
   }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--color-brand);
+    border-color: var(--color-line2);
+  }
+
+  .btn-outline:hover {
+    background: var(--color-brandsoft);
+    border-color: var(--color-brand);
+    color: var(--color-brand);
+  }
 }

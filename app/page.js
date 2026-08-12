@@ -48,10 +48,15 @@ const sources = [
 
 const compareRows = [
   { label: "Runs inside VS Code", df: true, postman: false, thunder: true, insomnia: false },
-  { label: "Turns Express & Next.js routes into a collection", df: true, postman: false, thunder: false, insomnia: false },
-  { label: "Works with no account", df: true, postman: false, thunder: true, insomnia: false },
+  { label: "Builds requests by scanning your code (Express & Next.js)", df: true, postman: false, thunder: false, insomnia: false },
+  { label: "Collections foldered to match your codebase structure", df: true, postman: false, thunder: false, insomnia: false },
+  { label: "Auth secrets kept in VS Code secure storage", df: true, postman: false, thunder: false, insomnia: false },
+  { label: "Import Postman, Insomnia, HAR, OpenAPI & cURL", df: true, postman: true, thunder: true, insomnia: true },
+  { label: "Environments with {{variables}}", df: true, postman: true, thunder: true, insomnia: true },
+  { label: "Copy any request as code (cURL, Python, Go, +)", df: true, postman: true, thunder: true, insomnia: true },
+  { label: "Request history built in", df: true, postman: true, thunder: true, insomnia: true },
+  { label: "Works with no account", df: true, postman: false, thunder: true, insomnia: true },
   { label: "Everything stays on your machine", df: true, postman: false, thunder: true, insomnia: true },
-  { label: "Imports Postman, OpenAPI, cURL and more", df: true, postman: true, thunder: true, insomnia: true },
   { label: "Free, no paid tier", df: true, postman: false, thunder: false, insomnia: false },
 ];
 
@@ -98,8 +103,8 @@ export default function Home() {
           {"// tip: open the Dragonfly tab in the sidebar to try a request"}
         </p>
         <div className="mt-7 grid grid-cols-2 md:flex items-center gap-3">
-          <a href={MARKETPLACE} target="_blank" className="btn">
-            Install for VS Code
+          <a href={MARKETPLACE} target="_blank" className="btn text-center justify-center">
+            Install <span className="hidden md:flex">for VS Code</span>
           </a>
           <CopyCommand command={INSTALL_CMD} />
         </div>
@@ -208,24 +213,6 @@ export default function Home() {
             </li>
           ))}
         </ul>
-
-        <Link
-          href="/dragonfly"
-          className="mt-[clamp(1.5rem,3vw,2rem)] flex items-center gap-3 rounded-xl border border-line2 bg-panel p-4 hover:border-brand"
-        >
-          <span className="grid h-10 w-10 flex-none place-items-center overflow-hidden rounded-lg bg-brandsoft">
-            <Image src="/dragonfly.png" alt="" width={28} height={28} className="rounded" />
-          </span>
-          <span className="flex-1">
-            <span className="block font-medium text-ink">Try a request now</span>
-            <span className="block text-sm text-muted">
-              Open the Dragonfly tab, pick a method, and press Send.
-            </span>
-          </span>
-          <span className="inline-flex items-center gap-1 font-mono text-sm text-brandink">
-            open <ArrowRightIcon size={15} />
-          </span>
-        </Link>
       </section>
 
       {/* compare */}
@@ -266,6 +253,56 @@ export default function Home() {
         <p className="mt-3 font-mono text-xs text-faint">
           Comparison reflects the free, out-of-the-box experience of each tool.
         </p>
+      </section>
+
+      {/* scope */}
+      <section id="scope" className="mt-[clamp(2.5rem,5vw,4rem)] scroll-mt-24 border-t border-line pt-[clamp(2.25rem,4vw,3.25rem)]">
+        <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+          <span className="mr-1 font-mono font-normal text-brand">#</span>
+          What Dragonfly is, and is not.
+        </h2>
+        <p className="mt-4 max-w-[62ch] text-base text-inksoft sm:text-lg">
+          Dragonfly does one job well: read your codebase and build your requests
+          for you, right inside the editor. Knowing where it stops is part of the
+          pitch.
+        </p>
+        <div className="mt-[clamp(1.5rem,4vw,2.25rem)] grid gap-px overflow-hidden rounded-lg border border-line bg-line md:grid-cols-2">
+          {[
+            {
+              k: "// built for",
+              title: "Built for this",
+              items: [
+                "Testing the endpoint you are working on right now",
+                "Turning Express & Next.js routes into a collection",
+                "Importing Postman, OpenAPI, cURL and more",
+                "Staying local, no account, no telemetry",
+              ],
+            },
+            {
+              k: "// on the roadmap",
+              title: "On the roadmap",
+              items: [
+                "Team sync for collections and environments",
+                "More frameworks for route discovery",
+                "Deeper OpenAPI and GraphQL support",
+                "Driven by what people ask for",
+              ],
+            },
+          ].map((col) => (
+            <div key={col.title} className="bg-bg p-5">
+              <p className="font-mono text-sm text-brandink">{col.k}</p>
+              <h3 className="mt-1.5 text-lg font-semibold">{col.title}</h3>
+              <ul className="mt-3 flex flex-col gap-2">
+                {col.items.map((it) => (
+                  <li key={it} className="flex gap-2.5 text-sm text-muted">
+                    <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-brand" />
+                    <span>{it}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* faq */}

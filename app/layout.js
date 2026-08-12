@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-const SITE_URL = "https://dragonfly.dev";
+const SITE_URL = "https://usedragonfly.xyz";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -29,17 +29,26 @@ export const metadata = {
   keywords: [
     "vs code rest client",
     "api client for vs code",
+    "rest client vs code",
     "postman alternative",
     "thunder client alternative",
+    "insomnia alternative",
+    "api testing vs code",
+    "http client",
     "openapi import",
+    "swagger import",
     "curl import",
     "express route discovery",
     "next.js api routes",
-    "http request",
+    "test api in vs code",
   ],
-  authors: [{ name: "Dragonfly" }],
+  authors: [{ name: "Saurabh Wankhade" }],
+  creator: "Saurabh Wankhade",
   applicationName: "Dragonfly",
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    types: { "application/rss+xml": `${SITE_URL}/rss.xml` },
+  },
   openGraph: {
     type: "website",
     url: SITE_URL,
@@ -74,15 +83,32 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#org`,
+      name: "Dragonfly",
+      url: SITE_URL,
+      logo: `${SITE_URL}/dragonfly.png`,
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      name: "Dragonfly",
+      url: SITE_URL,
+      publisher: { "@id": `${SITE_URL}/#org` },
+      inLanguage: "en",
+    },
+    {
       "@type": "SoftwareApplication",
       "@id": `${SITE_URL}/#app`,
       name: "Dragonfly",
       applicationCategory: "DeveloperApplication",
       operatingSystem: "Visual Studio Code",
+      url: SITE_URL,
+      publisher: { "@id": `${SITE_URL}/#org` },
       description:
-        "A REST API client for VS Code. Send requests, organize collections, import from Postman, Thunder Client, Insomnia, HAR, OpenAPI and cURL, and scan Express and Next.js code for routes.",
+        "A REST API client for VS Code. Send requests, organize collections, import from Postman, Thunder Client, Insomnia, HAR, OpenAPI and cURL, and scan Express and Next.js code for routes, foldered to match your codebase.",
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-      softwareVersion: "0.0.1",
+      softwareVersion: "0.0.6",
     },
     {
       "@type": "FAQPage",

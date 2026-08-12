@@ -30,7 +30,6 @@ const ICONS = {
 export default function Shell({ children }) {
   const pathname = usePathname();
   const active = VIEWS.find((v) => v.href === pathname) || VIEWS[0];
-  const welcome = VIEWS[0];
   const outline = OUTLINES[active.href] || [];
 
   return (
@@ -44,55 +43,16 @@ export default function Shell({ children }) {
         </div>
         <div className="flex flex-1 items-center justify-center gap-1.5 overflow-hidden whitespace-nowrap text-sm text-muted">
           <Image src="/dragonfly.png" alt="" width={16} height={16} className="flex-none rounded-sm" />
-          <span className="truncate">{active.file} - Dragonfly - Visual Studio Code</span>
+          <span className="truncate">{active.file} - Dragonfly</span>
         </div>
         <a
           href={MARKETPLACE}
           target="_blank"
-          className="flex-none rounded-md border border-line2 px-2.5 py-1 text-sm font-medium text-brand hover:border-brand hover:bg-brandsoft"
+          className="btn btn-outline flex-none px-2.5 py-1 text-sm"
         >
           Install
         </a>
       </header>
-
-      {/* Mobile nav (activity bar + outline are hidden below lg) */}
-      <div className="lg:hidden">
-        <div className="flex gap-1 overflow-x-auto border-b border-line bg-panel px-4 md:px-2 py-1.5">
-          {VIEWS.map((v) => {
-            const Icon = ICONS[v.icon];
-            const on = v.href === active.href;
-            return (
-              <Link
-                key={v.href}
-                href={v.href}
-                className={`inline-flex flex-none items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm ${
-                  on ? "bg-vscselect text-ink" : "text-inksoft hover:bg-panel2"
-                }`}
-              >
-                {v.icon === "dragonfly" ? (
-                  <Image src="/dragonfly.png" alt="" width={16} height={16} className="rounded-sm" />
-                ) : (
-                  <Icon size={16} />
-                )}
-                {v.label}
-              </Link>
-            );
-          })}
-        </div>
-        {outline.length > 0 && (
-          <div className="md:flex gap-1 overflow-x-auto border-b border-line bg-bg px-2 py-1.5 hidden">
-            {outline.map((s) => (
-              <a
-                key={s.id}
-                href={`#${s.id}`}
-                className="inline-flex flex-none items-center rounded px-2 py-1 font-mono text-xs text-muted hover:bg-panel hover:text-brandink"
-              >
-                # {s.label}
-              </a>
-            ))}
-          </div>
-        )}
-      </div>
 
       <div className="grid flex-1 grid-cols-1 lg:grid-cols-[48px_250px_minmax(0,1fr)]">
         {/* Activity bar */}
@@ -149,7 +109,13 @@ export default function Shell({ children }) {
           <div className="flex-1 px-1.5">
             <div className="flex items-center gap-1 px-2 py-1 text-xs font-semibold tracking-wide text-inksoft">
               <ChevronDownIcon size={14} />
-              <FileIcon size={14} className={active.ext === "http" ? "text-[#8dc891]" : "text-[#519aba]"} />
+              {active.href === "/changelog" ? (
+                <HistoryIcon size={14} className="text-brandink" />
+              ) : active.href === "/dragonfly" ? (
+                <Image src="/dragonfly.png" alt="" width={14} height={14} className="rounded-sm" />
+              ) : (
+                <FileIcon size={14} className={active.ext === "http" ? "text-[#8dc891]" : "text-[#519aba]"} />
+              )}
               {active.file}
             </div>
             <nav aria-label="Outline" className="flex flex-col">
@@ -175,9 +141,15 @@ export default function Shell({ children }) {
 
         {/* Editor */}
         <div className="flex min-w-0 flex-col bg-bg">
-          <div className="sticky top-9 z-20 hidden h-[38px] items-stretch overflow-x-auto border-b border-line bg-panel lg:flex">
-            <Tab view={welcome} active={active.href === welcome.href} showClose={active.href === welcome.href} />
-            {active.href !== welcome.href && <Tab view={active} active showClose />}
+          <div className="sticky top-9 z-20 flex h-9.5 items-stretch overflow-x-auto border-b border-line bg-panel">
+            {VIEWS.map((v) => (
+              <Tab
+                key={v.href}
+                view={v}
+                active={active.href === v.href}
+                showClose={active.href === v.href}
+              />
+            ))}
             <span className="ml-auto hidden items-center px-4 text-xs text-faint lg:flex">
               DRAGONFLY › {active.file}
             </span>
@@ -219,6 +191,7 @@ export default function Shell({ children }) {
 
 function Tab({ view, active, showClose }) {
   const isDragonfly = view.href === "/dragonfly";
+  const isChangelog = view.href === "/changelog";
   return (
     <Link
       href={view.href}
@@ -230,6 +203,8 @@ function Tab({ view, active, showClose }) {
     >
       {isDragonfly ? (
         <Image src="/dragonfly.png" alt="" width={14} height={14} className="rounded-sm" />
+      ) : isChangelog ? (
+        <HistoryIcon size={14} className="text-brandink" />
       ) : (
         <FileIcon size={14} className="text-[#519aba]" />
       )}

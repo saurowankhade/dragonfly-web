@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { CopyIcon, CheckIcon } from "./icons";
 
 export default function CopyCommand({ command }) {
   const [copied, setCopied] = useState(false);
@@ -16,12 +17,15 @@ export default function CopyCommand({ command }) {
     <button
       type="button"
       onClick={copy}
-      className="inline-flex max-w-full items-center truncate gap-2.5 rounded-md border border-line2 bg-bg py-2 pl-3.5 pr-2.5 font-mono text-sm text-inksoft transition-colors hover:border-brand hover:bg-panel"
+      className="btn btn-outline max-w-70 truncate font-mono text-sm"
     >
-      <span className="text-greenink">›</span>
       <code className="min-w-0 truncate text-ink">{command}</code>
-      <span className="flex-none rounded-md bg-panel2 px-2 py-1 text-xs text-muted">
-        {copied ? "Copied" : "Copy"}
+      <span className="text-muted">
+        {copied ? (
+          <CheckIcon size={13} className="text-greenink" />
+        ) : (
+          <CopyIcon size={13} />
+        )}
       </span>
     </button>
   );

@@ -95,6 +95,15 @@ export function ArrowRightIcon(props) {
   );
 }
 
+export function CopyIcon(props) {
+  return (
+    <Svg {...props}>
+      <path d="M9 15c0-2.83 0-4.24.879-5.121C10.757 9 12.172 9 15 9h1c2.828 0 4.243 0 5.121.879C22 10.757 22 12.172 22 15v1c0 2.828 0 4.243-.879 5.121C20.243 22 18.828 22 16 22h-1c-2.828 0-4.243 0-5.121-.879C9 20.243 9 18.828 9 16z" />
+      <path d="M17 9c-.002-2.957-.047-4.489-.908-5.538a4 4 0 0 0-.554-.554C14.431 2 12.786 2 9.497 2 6.207 2 4.562 2 3.456 2.908a4 4 0 0 0-.554.554C1.993 4.569 1.993 6.214 1.993 9.503c0 3.29 0 4.935.909 6.041.166.203.351.389.554.555C4.504 16.96 6.036 17.004 8.993 17.007" />
+    </Svg>
+  );
+}
+
 export function FileIcon(props) {
   return (
     <Svg {...props}>
@@ -185,6 +194,16 @@ export function HistoryIcon(props) {
       <path d="M3.5 9a9 9 0 1 1-1 5" />
       <path d="M3 5v4h4" />
       <path d="M12 8v4l3 2" />
+    </Svg>
+  );
+}
+
+export function RssIcon(props) {
+  return (
+    <Svg {...props}>
+      <path d="M5 11a8 8 0 0 1 8 8" />
+      <path d="M5 5a14 14 0 0 1 14 14" />
+      <circle cx="6" cy="18" r="1.4" fill="currentColor" stroke="none" />
     </Svg>
   );
 }

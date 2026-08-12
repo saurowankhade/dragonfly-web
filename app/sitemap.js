@@ -1,4 +1,4 @@
-const SITE_URL = "https://dragonfly.dev";
+const SITE_URL = "https://usedragonfly.xyz";
 
 const paths = ["", "/dragonfly", "/changelog"];
 
