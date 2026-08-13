@@ -72,6 +72,9 @@ export const metadata = {
     googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
   category: "developer tools",
+  verification: {
+    google: "coLwj7R3Oog6nmJJHAmSwqhuiTKgPIgxBWr90ffdTh0",
+  },
 };
 
 export const viewport = {
