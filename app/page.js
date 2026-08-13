@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
 import CopyCommand from "./components/CopyCommand";
-import { CheckIcon, ArrowRightIcon } from "./components/icons";
+import { CheckIcon } from "./components/icons";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
   title: "REST API Client for VS Code",
@@ -47,17 +47,83 @@ const sources = [
 ];
 
 const compareRows = [
-  { label: "Runs inside VS Code", df: true, postman: true, thunder: true, insomnia: false },
-  { label: "Builds requests by scanning your code (Express & Next.js)", df: true, postman: false, thunder: false, insomnia: false },
-  { label: "Collections foldered to match your codebase structure", df: true, postman: false, thunder: false, insomnia: false },
-  { label: "Auth secrets kept in VS Code secure storage", df: true, postman: false, thunder: false, insomnia: false },
-  { label: "Import Postman, OpenAPI & cURL", df: true, postman: true, thunder: true, insomnia: true },
-  { label: "Environments with {{variables}}", df: true, postman: true, thunder: true, insomnia: true },
-  { label: "Copy any request as code (cURL, Python, Go, +)", df: true, postman: true, thunder: true, insomnia: true },
-  { label: "Request history built in", df: true, postman: true, thunder: true, insomnia: true },
-  { label: "Works with no account", df: true, postman: false, thunder: true, insomnia: true },
-  { label: "Everything stays on your machine", df: true, postman: false, thunder: true, insomnia: true },
-  { label: "Free, no paid tier", df: true, postman: false, thunder: false, insomnia: false },
+  {
+    label: "Runs inside VS Code",
+    df: true,
+    postman: true,
+    thunder: true,
+    insomnia: false,
+  },
+  {
+    label: "Builds requests by scanning your code (Express & Next.js)",
+    df: true,
+    postman: false,
+    thunder: false,
+    insomnia: false,
+  },
+  {
+    label: "Collections foldered to match your codebase structure",
+    df: true,
+    postman: false,
+    thunder: false,
+    insomnia: false,
+  },
+  {
+    label: "Auth secrets kept in VS Code secure storage",
+    df: true,
+    postman: false,
+    thunder: false,
+    insomnia: false,
+  },
+  {
+    label: "Import Postman, OpenAPI & cURL",
+    df: true,
+    postman: true,
+    thunder: true,
+    insomnia: true,
+  },
+  {
+    label: "Environments with {{variables}}",
+    df: true,
+    postman: true,
+    thunder: true,
+    insomnia: true,
+  },
+  {
+    label: "Copy any request as code (cURL, Python, Go, +)",
+    df: true,
+    postman: true,
+    thunder: true,
+    insomnia: true,
+  },
+  {
+    label: "Request history built in",
+    df: true,
+    postman: true,
+    thunder: true,
+    insomnia: true,
+  },
+  {
+    label: "Works with no account",
+    df: true,
+    postman: false,
+    thunder: true,
+    insomnia: true,
+  },
+  {
+    label: "Everything stays on your machine",
+    df: true,
+    postman: false,
+    thunder: true,
+    insomnia: true,
+  },
+  {
+    label: "Free, no paid tier",
+    df: true,
+    postman: false,
+    thunder: false,
+    insomnia: false,
+  },
 ];
 
 const faqs = [
@@ -88,10 +154,21 @@ export default function Home() {
           {"// you already wrote these routes. stop retyping their URLs."}
         </p>
         <div className="mt-4 flex items-center gap-4">
-          <Image src="/dragonfly.png" alt="Dragonfly" width={56} height={56} className="h-11 w-11 flex-none rounded-xl sm:h-14 sm:w-14" priority />
+          <Image
+            src="/dragonfly.png"
+            alt="Dragonfly"
+            width={56}
+            height={56}
+            className="h-11 w-11 flex-none rounded-xl sm:h-14 sm:w-14"
+            priority
+          />
           <div className="min-w-0">
-            <h1 className="text-4xl font-semibold leading-none tracking-tight sm:text-6xl">Dragonfly</h1>
-            <p className="mt-1.5 font-mono text-base text-muted">REST API client for VS Code</p>
+            <h1 className="text-4xl font-semibold leading-none tracking-tight sm:text-6xl">
+              Dragonfly
+            </h1>
+            <p className="mt-1.5 font-mono text-base text-muted">
+              REST API client for VS Code
+            </p>
           </div>
         </div>
         <p className="mt-6 text-lg text-inksoft">
@@ -103,13 +180,21 @@ export default function Home() {
           {"// tip: open the Dragonfly tab in the sidebar to try a request"}
         </p>
         <div className="mt-7 grid grid-cols-2 md:flex items-center gap-3">
-          <a href={MARKETPLACE} target="_blank" className="btn text-center justify-center">
+          <a
+            href={MARKETPLACE}
+            target="_blank"
+            className="btn text-center justify-center"
+          >
             Install <span className="hidden md:flex">for VS Code</span>
           </a>
           <CopyCommand command={INSTALL_CMD} />
         </div>
         <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
-          {["Free, no paid tier", "No account, no sign in", "Runs on your machine"].map((t) => (
+          {[
+            "Free, no paid tier",
+            "No account, no sign in",
+            "Runs on your machine",
+          ].map((t) => (
             <li key={t} className="inline-flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-green" />
               {t}
@@ -130,7 +215,10 @@ export default function Home() {
       </section>
 
       {/* the difference */}
-      <section id="difference" className="mt-[clamp(2.5rem,5vw,4rem)] scroll-mt-24 border-t border-line pt-[clamp(2.25rem,4vw,3.25rem)]">
+      <section
+        id="difference"
+        className="mt-[clamp(2.5rem,5vw,4rem)] scroll-mt-24 border-t border-line pt-[clamp(2.25rem,4vw,3.25rem)]"
+      >
         <h2 className=" text-2xl font-semibold tracking-tight sm:text-3xl">
           <span className="mr-1 font-mono font-normal text-brand">#</span>
           Other clients start empty. Dragonfly starts from your code.
@@ -146,15 +234,20 @@ export default function Home() {
         </p>
         <div className="mt-[clamp(1.5rem,3vw,2rem)] overflow-hidden rounded-lg border border-line2 bg-bg">
           <div className="flex gap-5 border-b border-line bg-panel px-3.5 py-2">
-            <span className="text-[0.7rem] uppercase tracking-wider text-faint">Problems</span>
-            <span className="text-[0.7rem] uppercase tracking-wider text-faint">Output</span>
+            <span className="text-[0.7rem] uppercase tracking-wider text-faint">
+              Problems
+            </span>
+            <span className="text-[0.7rem] uppercase tracking-wider text-faint">
+              Output
+            </span>
             <span className="border-b border-brand pb-0.5 text-[0.7rem] uppercase tracking-wider text-ink">
               Terminal
             </span>
           </div>
           <div className="overflow-x-auto px-4 py-3.5 font-mono text-sm leading-[1.9] text-inksoft">
             <div className="whitespace-nowrap">
-              <span className="text-greenink">➜ dragonfly</span> scan workspace for routes
+              <span className="text-greenink">➜ dragonfly</span> scan workspace
+              for routes
             </div>
             {[
               { m: "GET", p: "/api/users", c: "text-greenink" },
@@ -163,7 +256,9 @@ export default function Home() {
               { m: "PATCH", p: "/api/users/:id", c: "text-amberink" },
             ].map((r, i) => (
               <div key={i} className="flex gap-3 whitespace-nowrap">
-                <span className={`w-14 shrink-0 font-medium ${r.c}`}>{r.m}</span>
+                <span className={`w-14 shrink-0 font-medium ${r.c}`}>
+                  {r.m}
+                </span>
                 <span>{r.p}</span>
               </div>
             ))}
@@ -175,15 +270,20 @@ export default function Home() {
       </section>
 
       {/* features */}
-      <section id="features" className="mt-[clamp(2.5rem,5vw,4rem)] scroll-mt-24 border-t border-line pt-[clamp(2.25rem,4vw,3.25rem)]">
+      <section
+        id="features"
+        className="mt-[clamp(2.5rem,5vw,4rem)] scroll-mt-24 border-t border-line pt-[clamp(2.25rem,4vw,3.25rem)]"
+      >
         <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-          <span className="mr-1 font-mono font-normal text-brand">#</span>
-          A complete client, not a cut down one.
+          <span className="mr-1 font-mono font-normal text-brand">#</span>A
+          complete client, not a cut down one.
         </h2>
         <div className="mt-[clamp(1.5rem,4vw,2.25rem)] grid gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2">
           {features.map((f) => (
             <article key={f.key} className="bg-bg py-6 px-4 md:px-6">
-              <p className="font-mono text-sm text-brandink">&quot;{f.key}&quot;:</p>
+              <p className="font-mono text-sm text-brandink">
+                &quot;{f.key}&quot;:
+              </p>
               <h3 className="mt-1.5 text-lg font-semibold">{f.title}</h3>
               <p className="mt-2 text-base text-muted">{f.body}</p>
             </article>
@@ -192,7 +292,10 @@ export default function Home() {
       </section>
 
       {/* importing */}
-      <section id="importing" className="mt-[clamp(2.5rem,5vw,4rem)] scroll-mt-24 border-t border-line pt-[clamp(2.25rem,4vw,3.25rem)]">
+      <section
+        id="importing"
+        className="mt-[clamp(2.5rem,5vw,4rem)] scroll-mt-24 border-t border-line pt-[clamp(2.25rem,4vw,3.25rem)]"
+      >
         <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
           <span className="mr-1 font-mono font-normal text-brand">#</span>
           Bring the work you already have.
@@ -216,7 +319,10 @@ export default function Home() {
       </section>
 
       {/* compare */}
-      <section id="compare" className="mt-[clamp(2.5rem,5vw,4rem)] scroll-mt-24 border-t border-line pt-[clamp(2.25rem,4vw,3.25rem)]">
+      <section
+        id="compare"
+        className="mt-[clamp(2.5rem,5vw,4rem)] scroll-mt-24 border-t border-line pt-[clamp(2.25rem,4vw,3.25rem)]"
+      >
         <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
           <span className="mr-1 font-mono font-normal text-brand">#</span>
           How it compares.
@@ -230,19 +336,39 @@ export default function Home() {
             <thead>
               <tr className="border-b border-line bg-panel text-left">
                 <th className="px-4 py-3 font-medium text-muted">Feature</th>
-                <th className="border-l border-line bg-brandsoft px-4 py-3 font-semibold text-brandink">Dragonfly</th>
-                <th className="border-l border-line px-4 py-3 font-medium text-muted">Postman</th>
-                <th className="border-l border-line px-4 py-3 font-medium text-muted">Thunder Client</th>
-                <th className="border-l border-line px-4 py-3 font-medium text-muted">Insomnia</th>
+                <th className="border-l border-line bg-brandsoft px-4 py-3 font-semibold text-brandink">
+                  Dragonfly
+                </th>
+                <th className="border-l border-line px-4 py-3 font-medium text-muted">
+                  Postman
+                </th>
+                <th className="border-l border-line px-4 py-3 font-medium text-muted">
+                  Thunder Client
+                </th>
+                <th className="border-l border-line px-4 py-3 font-medium text-muted">
+                  Insomnia
+                </th>
               </tr>
             </thead>
             <tbody>
               {compareRows.map((row) => (
-                <tr key={row.label} className="border-b border-line last:border-0">
+                <tr
+                  key={row.label}
+                  className="border-b border-line last:border-0"
+                >
                   <td className="px-4 py-3 text-inksoft">{row.label}</td>
                   {["df", "postman", "thunder", "insomnia"].map((col) => (
-                    <td key={col} className={`border-l border-line px-4 py-3 ${col === "df" ? "bg-brandsoft/50" : ""}`}>
-                      {row[col] ? <CheckIcon size={17} className="text-greenink" /> : <span className="text-faint">–</span>}
+                    <td
+                      key={col}
+                      className={`border-l border-line px-4 py-3 ${
+                        col === "df" ? "bg-brandsoft/50" : ""
+                      }`}
+                    >
+                      {row[col] ? (
+                        <CheckIcon size={17} className="text-greenink" />
+                      ) : (
+                        <span className="text-faint">–</span>
+                      )}
                     </td>
                   ))}
                 </tr>
@@ -256,15 +382,18 @@ export default function Home() {
       </section>
 
       {/* scope */}
-      <section id="scope" className="mt-[clamp(2.5rem,5vw,4rem)] scroll-mt-24 border-t border-line pt-[clamp(2.25rem,4vw,3.25rem)]">
+      <section
+        id="scope"
+        className="mt-[clamp(2.5rem,5vw,4rem)] scroll-mt-24 border-t border-line pt-[clamp(2.25rem,4vw,3.25rem)]"
+      >
         <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
           <span className="mr-1 font-mono font-normal text-brand">#</span>
           What Dragonfly is, and is not.
         </h2>
         <p className="mt-4 max-w-[62ch] text-base text-inksoft sm:text-lg">
-          Dragonfly does one job well: read your codebase and build your requests
-          for you, right inside the editor. Knowing where it stops is part of the
-          pitch.
+          Dragonfly does one job well: read your codebase and build your
+          requests for you, right inside the editor. Knowing where it stops is
+          part of the pitch.
         </p>
         <div className="mt-[clamp(1.5rem,4vw,2.25rem)] grid gap-px overflow-hidden rounded-lg border border-line bg-line md:grid-cols-2">
           {[
@@ -306,7 +435,10 @@ export default function Home() {
       </section>
 
       {/* faq */}
-      <section id="faq" className="mt-[clamp(2.5rem,5vw,4rem)] scroll-mt-24 border-t border-line pt-[clamp(2.25rem,4vw,3.25rem)]">
+      <section
+        id="faq"
+        className="mt-[clamp(2.5rem,5vw,4rem)] scroll-mt-24 border-t border-line pt-[clamp(2.25rem,4vw,3.25rem)]"
+      >
         <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
           <span className="mr-1 font-mono font-normal text-brand">#</span>
           Questions, answered plainly.
@@ -316,8 +448,12 @@ export default function Home() {
             <details key={f.q} className="group border-b border-line">
               <summary className="relative list-none py-4 pr-8 text-base font-medium sm:text-lg">
                 {f.q}
-                <span className="absolute right-0.5 top-1/2 -translate-y-1/2 font-mono text-xl text-muted group-open:hidden">+</span>
-                <span className="absolute right-0.5 top-1/2 hidden -translate-y-1/2 font-mono text-xl text-muted group-open:inline">–</span>
+                <span className="absolute right-0.5 top-1/2 -translate-y-1/2 font-mono text-xl text-muted group-open:hidden">
+                  +
+                </span>
+                <span className="absolute right-0.5 top-1/2 hidden -translate-y-1/2 font-mono text-xl text-muted group-open:inline">
+                  –
+                </span>
               </summary>
               <p className="mb-4 text-muted">{f.a}</p>
             </details>
@@ -326,7 +462,10 @@ export default function Home() {
       </section>
 
       {/* contact */}
-      <section id="contact" className="mt-[clamp(2.5rem,5vw,4rem)] scroll-mt-24 border-t border-line pt-[clamp(2.25rem,4vw,3.25rem)]">
+      <section
+        id="contact"
+        className="mt-[clamp(2.5rem,5vw,4rem)] scroll-mt-24 border-t border-line pt-[clamp(2.25rem,4vw,3.25rem)]"
+      >
         <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
           <span className="mr-1 font-mono font-normal text-brand">#</span>
           Found a bug, or have an idea?
@@ -343,7 +482,7 @@ export default function Home() {
           .
         </p>
       </section>
-
+      <Analytics />
     </>
   );
 }
