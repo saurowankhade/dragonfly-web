@@ -108,7 +108,7 @@ ${body}
 export function llmsTxt() {
   return `# Dragonfly
 
-> Dragonfly is a free, open-source REST API client that runs inside Visual Studio
+> Dragonfly is a free, REST API client that runs inside Visual Studio
 > Code. It sends HTTP requests, organizes them into collections, and can scan your
 > Express and Next.js codebase to build a collection of requests automatically,
 > foldered to match your project. Everything stays on the user's machine: no
