@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-const SITE_URL = "https://usedragonfly.xyz";
+const SITE_URL = "https://www.usedragonfly.xyz";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -170,14 +170,17 @@ const jsonLd = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
-      <body>
-        {/* Discovery hints (hoisted into <head> by Next): sitemap + llms.txt */}
+      <head>
+        {/* Discovery hints: sitemap, robots, llms.txt */}
         <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+        <link rel="alternate" type="text/plain" title="robots.txt" href="/robots.txt" />
         <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+      </head>
+      <body>
         <Shell>{children}</Shell>
       </body>
     </html>

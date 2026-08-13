@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://www.usedragonfly.xyz
+Sitemap: https://www.usedragonfly.xyz/sitemap.xml

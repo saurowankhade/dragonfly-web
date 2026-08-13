@@ -1,7 +1,7 @@
 // Shared demo data for the interactive request previews.
 // Change BASE_URL or a response here and every preview updates.
 
-export const BASE_URL = "https://usedragonfly.xyz/";
+export const BASE_URL = "https://www.usedragonfly.xyz/";
 
 export const METHODS = ["GET", "POST", "PUT", "PATCH", "DELETE"];
 

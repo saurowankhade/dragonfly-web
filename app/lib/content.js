@@ -1,6 +1,6 @@
 import { releases } from "./nav";
 
-export const SITE_URL = "https://usedragonfly.xyz";
+export const SITE_URL = "https://www.usedragonfly.xyz";
 export const MARKETPLACE =
   "https://marketplace.visualstudio.com/items?itemName=saurabhwankhade.dragonfly";
 export const INSTALL_CMD = "ext install saurabhwankhade.dragonfly";
