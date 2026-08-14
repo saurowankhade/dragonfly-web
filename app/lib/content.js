@@ -1,6 +1,7 @@
 import { releases } from "./nav";
 
 export const SITE_URL = "https://www.usedragonfly.xyz";
+export const DOCS_URL = "http://docs.usedragonfly.xyz/";
 export const MARKETPLACE =
   "https://marketplace.visualstudio.com/items?itemName=saurabhwankhade.dragonfly";
 export const INSTALL_CMD = "ext install saurabhwankhade.dragonfly";
@@ -9,7 +10,7 @@ export const FEATURES = [
   "Request builder: method, URL, params, headers, body and auth, docked in the Activity Bar.",
   "Route discovery: scan a workspace for Express and Next.js routes (App Router and Pages Router) and build a collection from them.",
   "Collections foldered to match your codebase structure.",
-  "Collection import: Postman (v1 and v2), Thunder Client, Insomnia and HAR, with folders, headers, query params and bodies intact.",
+  "Collection import: Postman collections, with folders, headers, query params and bodies intact.",
   "OpenAPI and Swagger import: one request per operation, grouped into folders by tag.",
   "cURL import: paste a command and the form fills itself in.",
   "Environments with {{variable}} substitution, one click to switch.",
@@ -29,7 +30,7 @@ const FAQS = [
   ],
   [
     "Which frameworks does route discovery support?",
-    "Express and Next.js, covering both the App Router and the Pages Router. For anything else, import OpenAPI, a Postman/Thunder Client/Insomnia collection, HAR, or cURL.",
+    "Express and Next.js, covering both the App Router and the Pages Router. For anything else, import an OpenAPI or Swagger spec, a Postman collection, or a cURL command.",
   ],
   [
     "Where does my data go?",
@@ -46,6 +47,7 @@ already wrote straight out of your codebase. All without leaving the editor.
 
 - Install: ${MARKETPLACE}
 - Quick Open: \`${INSTALL_CMD}\`
+- Docs: ${DOCS_URL}
 
 ## What it does
 
@@ -72,7 +74,7 @@ ${FAQS.map(([q, a]) => `### ${q}\n${a}`).join("\n\n")}
 `;
 }
 
-export function dragonflyMd() {
+export function playgroundMd() {
   return `# Try a request in Dragonfly
 
 Dragonfly gives you a full request builder inside VS Code: pick a method
@@ -82,6 +84,7 @@ size and timing.
 
 - Install: ${MARKETPLACE}
 - Quick Open: \`${INSTALL_CMD}\`
+- Docs: ${DOCS_URL}
 
 Auth types: Bearer Token, API Key and Basic Auth. Secrets are stored in VS Code
 secure storage, never written into a collection file. Any request can be copied
@@ -92,7 +95,7 @@ out as cURL, Node.js, Python, Go, PHP, Java or Rust.
 export function changelogMd() {
   const body = releases
     .map((r) => {
-      const head = `## v${r.version}${r.tag ? ` (${r.tag})` : ""} — ${r.date}`;
+      const head = `## v${r.version}${r.tag ? ` (${r.tag})` : ""} - ${r.date}`;
       return `${head}\n${r.changes.map((c) => `- ${c}`).join("\n")}`;
     })
     .join("\n\n");
@@ -148,18 +151,20 @@ ${FAQS.map(([q, a]) => `### ${q}\n${a}`).join("\n\n")}
 
 - VS Code Marketplace: ${MARKETPLACE}
 - Quick Open: ${INSTALL_CMD}
+- Documentation: ${DOCS_URL}
 
 ## Pages
 
 - [Overview](${SITE_URL}/welcome.md): what Dragonfly does, features, comparison, FAQ.
-- [Try a request](${SITE_URL}/dragonfly.md): the in-editor request builder and how to test an API.
+- [Try a request](${SITE_URL}/playground.md): the in-editor request builder and how to test an API.
 - [Changelog](${SITE_URL}/changelog.md): release notes (also available as RSS at ${SITE_URL}/rss.xml).
+- [Documentation](${DOCS_URL}): guides and reference for using Dragonfly.
 
 ## Key facts
 
 - Category: developer tool, VS Code extension, REST API client, Postman alternative.
 - Differentiators: builds requests by scanning Express and Next.js code; collection folders mirror your codebase; auth secrets in VS Code secure storage; free and MIT licensed.
-- Imports: Postman, Thunder Client, Insomnia, HAR, OpenAPI/Swagger, cURL.
+- Imports: Postman collections, OpenAPI/Swagger, cURL.
 - Pricing: free, no paid tier, no telemetry, MIT licensed.
 - Platform: Visual Studio Code (Marketplace ID saurabhwankhade.dragonfly).
 - Contact: saurowankhade@gmail.com

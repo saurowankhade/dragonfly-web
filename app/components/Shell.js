@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   ExplorerIcon,
-  DragonflyIcon,
   HistoryIcon,
   DownloadIcon,
   ChevronDownIcon,
@@ -15,7 +14,11 @@ import {
   ErrorIcon,
   WarningIcon,
   BellIcon,
+  GoogleDocIcon,
+  PlaygroundIcon,
 } from "./icons";
+
+const DOCS = "http://docs.usedragonfly.xyz/";
 import { VIEWS, OUTLINES } from "../lib/nav";
 
 const MARKETPLACE =
@@ -23,7 +26,7 @@ const MARKETPLACE =
 
 const ICONS = {
   explorer: ExplorerIcon,
-  dragonfly: DragonflyIcon,
+  playground: PlaygroundIcon,
   history: HistoryIcon,
 };
 
@@ -75,11 +78,7 @@ export default function Shell({ children }) {
                     on ? "border-brand text-ink" : "border-transparent text-muted hover:text-ink"
                   }`}
                 >
-                  {v.icon === "dragonfly" ? (
-                    <Image src="/dragonfly.png" alt="" width={24} height={24} className="rounded" />
-                  ) : (
-                    <Icon size={22} />
-                  )}
+                  <Icon size={22} />
                   <span className="pointer-events-none absolute left-[46px] top-1/2 z-50 hidden -translate-y-1/2 whitespace-nowrap rounded-md border border-line2 bg-bg px-2 py-1 text-xs text-ink group-hover:block">
                     {v.label}
                   </span>
@@ -87,18 +86,32 @@ export default function Shell({ children }) {
               );
             })}
           </div>
-          <a
-            href={MARKETPLACE}
-            target="_blank"
-            title="Install on Marketplace"
-            aria-label="Install on Marketplace"
-            className="group relative grid h-10 w-10 place-items-center border-l-2 border-transparent text-muted hover:text-brand"
-          >
-            <DownloadIcon size={22} />
-            <span className="pointer-events-none absolute left-[46px] top-1/2 z-50 hidden -translate-y-1/2 whitespace-nowrap rounded-md border border-line2 bg-bg px-2 py-1 text-xs text-ink group-hover:block">
-              Install on Marketplace
-            </span>
-          </a>
+          <div className="flex flex-col gap-1">
+            <a
+              href={DOCS}
+              target="_blank"
+              title="Documentation"
+              aria-label="Documentation"
+              className="group relative grid h-10 w-10 place-items-center border-l-2 border-transparent text-muted hover:text-ink"
+            >
+              <GoogleDocIcon size={22} />
+              <span className="pointer-events-none absolute left-[46px] top-1/2 z-50 hidden -translate-y-1/2 whitespace-nowrap rounded-md border border-line2 bg-bg px-2 py-1 text-xs text-ink group-hover:block">
+                Documentation
+              </span>
+            </a>
+            <a
+              href={MARKETPLACE}
+              target="_blank"
+              title="Install on Marketplace"
+              aria-label="Install on Marketplace"
+              className="group relative grid h-10 w-10 place-items-center border-l-2 border-transparent text-muted hover:text-brand"
+            >
+              <DownloadIcon size={22} />
+              <span className="pointer-events-none absolute left-[46px] top-1/2 z-50 hidden -translate-y-1/2 whitespace-nowrap rounded-md border border-line2 bg-bg px-2 py-1 text-xs text-ink group-hover:block">
+                Install on Marketplace
+              </span>
+            </a>
+          </div>
         </nav>
 
         {/* Explorer: shows the OPEN FILE's outline (its h2 headings) */}
@@ -111,8 +124,8 @@ export default function Shell({ children }) {
               <ChevronDownIcon size={14} />
               {active.href === "/changelog" ? (
                 <HistoryIcon size={14} className="text-brandink" />
-              ) : active.href === "/dragonfly" ? (
-                <Image src="/dragonfly.png" alt="" width={14} height={14} className="rounded-sm" />
+              ) : active.href === "/playground" ? (
+                <PlaygroundIcon size={14} className="text-[#8dc891]" />
               ) : (
                 <FileIcon size={14} className={active.ext === "http" ? "text-[#8dc891]" : "text-[#519aba]"} />
               )}
@@ -190,7 +203,7 @@ export default function Shell({ children }) {
 }
 
 function Tab({ view, active, showClose }) {
-  const isDragonfly = view.href === "/dragonfly";
+  const isPlayground = view.href === "/playground";
   const isChangelog = view.href === "/changelog";
   return (
     <Link
@@ -201,14 +214,14 @@ function Tab({ view, active, showClose }) {
           : "bg-panel2 text-muted hover:text-ink"
       }`}
     >
-      {isDragonfly ? (
-        <Image src="/dragonfly.png" alt="" width={14} height={14} className="rounded-sm" />
+      {isPlayground ? (
+        <PlaygroundIcon size={14} className="text-[#8dc891]" />
       ) : isChangelog ? (
         <HistoryIcon size={14} className="text-brandink" />
       ) : (
         <FileIcon size={14} className="text-[#519aba]" />
       )}
-      {isDragonfly ? "Dragonfly" : view.file}
+      {view.file}
       {showClose && <CloseIcon size={13} className="text-faint" />}
     </Link>
   );

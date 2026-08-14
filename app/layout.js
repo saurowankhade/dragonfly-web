@@ -21,11 +21,11 @@ const SITE_URL = "https://www.usedragonfly.xyz";
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Dragonfly: REST API Client for VS Code",
+    default: "Dragonfly – REST API Client for VS Code",
     template: "%s | Dragonfly",
   },
   description:
-    "A REST API client inside VS Code. Send requests, organize collections, import from Postman, OpenAPI and cURL, and scan Express and Next.js routes.",
+    "A free REST API client inside VS Code. Send requests, save collections, import from Postman, OpenAPI and cURL, and auto-discover Express and Next.js routes.",
   keywords: [
     "vs code rest client",
     "api client for vs code",
@@ -53,18 +53,18 @@ export const metadata = {
     type: "website",
     url: SITE_URL,
     siteName: "Dragonfly",
-    title: "Dragonfly: REST API Client for VS Code",
+    title: "Dragonfly – The REST API Client Built Into VS Code",
     description:
-      "Send requests, organize collections, and pull API routes straight out of your Express and Next.js code. All inside VS Code.",
+      "Send requests, organize collections, and pull API routes straight out of your Express and Next.js code, all inside VS Code. Free and open source.",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
     site: "@saurowankhade",
     creator: "@saurowankhade",
-    title: "Dragonfly: REST API Client for VS Code",
+    title: "Dragonfly – REST API Client for VS Code",
     description:
-      "Send requests and auto-discover Express and Next.js routes, without leaving your editor.",
+      "Test APIs and auto-discover your Express and Next.js routes without leaving VS Code. Free and open source.",
   },
   robots: {
     index: true,
@@ -117,7 +117,7 @@ const jsonLd = {
       url: SITE_URL,
       publisher: { "@id": `${SITE_URL}/#org` },
       description:
-        "A REST API client for VS Code. Send requests, organize collections, import from Postman, Thunder Client, Insomnia, HAR, OpenAPI and cURL, and scan Express and Next.js code for routes, foldered to match your codebase.",
+        "A REST API client for VS Code. Send requests, organize collections, import from Postman, OpenAPI/Swagger and cURL, and scan Express and Next.js code for routes, foldered to match your codebase.",
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
       softwareVersion: "0.0.6",
     },
@@ -138,7 +138,7 @@ const jsonLd = {
           name: "Can I import my Postman collection?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Yes, and not only Postman. Import from Postman v1 or v2, Thunder Client, Insomnia, a HAR capture, an OpenAPI or Swagger spec, or a single cURL command. Run Import Collection and Dragonfly detects the format for you. Folders, headers, query params and bodies come across, and live credentials are left out on purpose.",
+            text: "Yes, and not only Postman. Import from a Postman collection, an OpenAPI or Swagger spec, or a single cURL command. Run Import Collection and Dragonfly detects the format for you. Folders, headers, query params and bodies come across, and live credentials are left out on purpose.",
           },
         },
         {
@@ -154,7 +154,7 @@ const jsonLd = {
           name: "Which frameworks does route discovery support?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Express and Next.js, covering both the App Router and the Pages Router. For anything else you can import an OpenAPI spec, a Postman, Thunder Client or Insomnia collection, a HAR capture, or a cURL command.",
+            text: "Express and Next.js, covering both the App Router and the Pages Router. For anything else you can import an OpenAPI or Swagger spec, a Postman collection, or a cURL command.",
           },
         },
         {
