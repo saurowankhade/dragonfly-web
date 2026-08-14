@@ -1,6 +1,7 @@
 import { releases } from "./nav";
 
 export const SITE_URL = "https://www.usedragonfly.xyz";
+export const DOCS_URL = "http://docs.usedragonfly.xyz/";
 export const MARKETPLACE =
   "https://marketplace.visualstudio.com/items?itemName=saurabhwankhade.dragonfly";
 export const INSTALL_CMD = "ext install saurabhwankhade.dragonfly";
@@ -46,6 +47,7 @@ already wrote straight out of your codebase. All without leaving the editor.
 
 - Install: ${MARKETPLACE}
 - Quick Open: \`${INSTALL_CMD}\`
+- Docs: ${DOCS_URL}
 
 ## What it does
 
@@ -82,6 +84,7 @@ size and timing.
 
 - Install: ${MARKETPLACE}
 - Quick Open: \`${INSTALL_CMD}\`
+- Docs: ${DOCS_URL}
 
 Auth types: Bearer Token, API Key and Basic Auth. Secrets are stored in VS Code
 secure storage, never written into a collection file. Any request can be copied
@@ -148,12 +151,14 @@ ${FAQS.map(([q, a]) => `### ${q}\n${a}`).join("\n\n")}
 
 - VS Code Marketplace: ${MARKETPLACE}
 - Quick Open: ${INSTALL_CMD}
+- Documentation: ${DOCS_URL}
 
 ## Pages
 
 - [Overview](${SITE_URL}/welcome.md): what Dragonfly does, features, comparison, FAQ.
 - [Try a request](${SITE_URL}/dragonfly.md): the in-editor request builder and how to test an API.
 - [Changelog](${SITE_URL}/changelog.md): release notes (also available as RSS at ${SITE_URL}/rss.xml).
+- [Documentation](${DOCS_URL}): guides and reference for using Dragonfly.
 
 ## Key facts
 

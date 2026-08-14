@@ -15,7 +15,10 @@ import {
   ErrorIcon,
   WarningIcon,
   BellIcon,
+  GoogleDocIcon,
 } from "./icons";
+
+const DOCS = "http://docs.usedragonfly.xyz/";
 import { VIEWS, OUTLINES } from "../lib/nav";
 
 const MARKETPLACE =
@@ -87,18 +90,32 @@ export default function Shell({ children }) {
               );
             })}
           </div>
-          <a
-            href={MARKETPLACE}
-            target="_blank"
-            title="Install on Marketplace"
-            aria-label="Install on Marketplace"
-            className="group relative grid h-10 w-10 place-items-center border-l-2 border-transparent text-muted hover:text-brand"
-          >
-            <DownloadIcon size={22} />
-            <span className="pointer-events-none absolute left-[46px] top-1/2 z-50 hidden -translate-y-1/2 whitespace-nowrap rounded-md border border-line2 bg-bg px-2 py-1 text-xs text-ink group-hover:block">
-              Install on Marketplace
-            </span>
-          </a>
+          <div className="flex flex-col gap-1">
+            <a
+              href={DOCS}
+              target="_blank"
+              title="Documentation"
+              aria-label="Documentation"
+              className="group relative grid h-10 w-10 place-items-center border-l-2 border-transparent text-muted hover:text-ink"
+            >
+              <GoogleDocIcon size={22} />
+              <span className="pointer-events-none absolute left-[46px] top-1/2 z-50 hidden -translate-y-1/2 whitespace-nowrap rounded-md border border-line2 bg-bg px-2 py-1 text-xs text-ink group-hover:block">
+                Documentation
+              </span>
+            </a>
+            <a
+              href={MARKETPLACE}
+              target="_blank"
+              title="Install on Marketplace"
+              aria-label="Install on Marketplace"
+              className="group relative grid h-10 w-10 place-items-center border-l-2 border-transparent text-muted hover:text-brand"
+            >
+              <DownloadIcon size={22} />
+              <span className="pointer-events-none absolute left-[46px] top-1/2 z-50 hidden -translate-y-1/2 whitespace-nowrap rounded-md border border-line2 bg-bg px-2 py-1 text-xs text-ink group-hover:block">
+                Install on Marketplace
+              </span>
+            </a>
+          </div>
         </nav>
 
         {/* Explorer: shows the OPEN FILE's outline (its h2 headings) */}
