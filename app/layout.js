@@ -21,11 +21,11 @@ const SITE_URL = "https://www.usedragonfly.xyz";
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Dragonfly: REST API Client for VS Code",
+    default: "Dragonfly – REST API Client for VS Code",
     template: "%s | Dragonfly",
   },
   description:
-    "A REST API client inside VS Code. Send requests, organize collections, import from Postman, OpenAPI and cURL, and scan Express and Next.js routes.",
+    "A free REST API client inside VS Code. Send requests, save collections, import from Postman, OpenAPI and cURL, and auto-discover Express and Next.js routes.",
   keywords: [
     "vs code rest client",
     "api client for vs code",
@@ -53,18 +53,18 @@ export const metadata = {
     type: "website",
     url: SITE_URL,
     siteName: "Dragonfly",
-    title: "Dragonfly: REST API Client for VS Code",
+    title: "Dragonfly – The REST API Client Built Into VS Code",
     description:
-      "Send requests, organize collections, and pull API routes straight out of your Express and Next.js code. All inside VS Code.",
+      "Send requests, organize collections, and pull API routes straight out of your Express and Next.js code — all inside VS Code. Free and open source.",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
     site: "@saurowankhade",
     creator: "@saurowankhade",
-    title: "Dragonfly: REST API Client for VS Code",
+    title: "Dragonfly – REST API Client for VS Code",
     description:
-      "Send requests and auto-discover Express and Next.js routes, without leaving your editor.",
+      "Test APIs and auto-discover your Express and Next.js routes without leaving VS Code. Free and open source.",
   },
   robots: {
     index: true,

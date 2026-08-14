@@ -4,9 +4,9 @@ import SubscribeForm from "../components/SubscribeForm";
 import { RssIcon } from "../components/icons";
 
 export const metadata = {
-  title: "Changelog",
+  title: "Changelog – What's New in Dragonfly",
   description:
-    "What has shipped in Dragonfly, the REST API client for VS Code. Release notes for every version, with RSS and email updates.",
+    "Every release of Dragonfly, the REST API client for VS Code. Full version-by-version release notes, with RSS and email updates so you never miss a feature.",
   alternates: {
     canonical: "/changelog",
     types: { "application/rss+xml": `${SITE_URL}/rss.xml` },

@@ -6,7 +6,7 @@ import { Analytics } from "@vercel/analytics/next";
 export const metadata = {
   title: "REST API Client for VS Code",
   description:
-    "A REST API client built into VS Code. Send requests, save collections, import from Postman and OpenAPI, and scan your Express and Next.js routes.",
+    "Test APIs without leaving VS Code. Send requests, save collections, import from Postman, OpenAPI and cURL, and auto-discover Express and Next.js routes. Free.",
   alternates: { canonical: "/" },
 };
 
@@ -167,7 +167,7 @@ export default function Home() {
               Dragonfly
             </h1>
             <p className="mt-1.5 font-mono text-base text-muted">
-              REST API client for VS Code
+              API testing inside VS Code, without leaving your codebase
             </p>
           </div>
         </div>
