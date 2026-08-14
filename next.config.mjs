@@ -8,6 +8,16 @@ const nextConfig = {
         permanent: false,
         basePath: false,
       },
+      {
+        source: "/dragonfly",
+        destination: "/playground",
+        permanent: true,
+      },
+      {
+        source: "/dragonfly.md",
+        destination: "/playground.md",
+        permanent: true,
+      },
     ];
   },
 };

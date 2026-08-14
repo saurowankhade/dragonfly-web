@@ -235,6 +235,16 @@ export function MailIcon({size = 24}) {
   );
 }
 
+export function PlaygroundIcon(props) {
+  return (
+    <Svg {...props}>
+      <path d="M9 3h6" />
+      <path d="M10 3v6.5L4.8 18.2A1.5 1.5 0 0 0 6.1 20.5h11.8a1.5 1.5 0 0 0 1.3-2.3L14 9.5V3" />
+      <path d="M7.2 14h9.6" />
+    </Svg>
+  );
+}
+
 export function GoogleDocIcon(props) {
   return (
     <Svg strokeWidth={1.5} {...props}>

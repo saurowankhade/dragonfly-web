@@ -38,10 +38,7 @@ const features = [
 ];
 
 const sources = [
-  "Postman v1 and v2",
-  "Thunder Client",
-  "Insomnia",
-  "HAR captures",
+  "Postman collections",
   "OpenAPI and Swagger",
   "cURL commands",
 ];
@@ -133,7 +130,7 @@ const faqs = [
   },
   {
     q: "Can I import my Postman collection?",
-    a: "Yes, and not only Postman. Import from Postman v1 or v2, Thunder Client, Insomnia, a HAR capture, an OpenAPI or Swagger spec, or a single cURL command. Run Import Collection and the format is detected for you. Folders, headers, query params and bodies come across, and live credentials are left out on purpose.",
+    a: "Yes, and not only Postman. Import from a Postman collection, an OpenAPI or Swagger spec, or a single cURL command. Run Import Collection and the format is detected for you. Folders, headers, query params and bodies come across, and live credentials are left out on purpose.",
   },
   {
     q: "Can it find the API routes in my project automatically?",
@@ -172,9 +169,9 @@ export default function Home() {
           </div>
         </div>
         <p className="mt-6 text-lg text-inksoft">
-          Send HTTP requests, keep them in collections, and let Dragonfly read
-          your Express and Next.js code to build the requests for you. One
-          editor, no second app, and nothing ever leaves your machine.
+          Dragonfly reads your Express and Next.js code and turns your routes
+          into ready-to-send requests. Build, send and inspect them right next
+          to your code. No second app, and nothing ever leaves your machine.
         </p>
         <p className="mt-3 font-mono text-sm text-comment">
           {"// tip: open the Dragonfly tab in the sidebar to try a request"}
@@ -189,6 +186,18 @@ export default function Home() {
           </a>
           <CopyCommand command={INSTALL_CMD} />
         </div>
+        <p className="mt-4 text-sm text-muted">
+          New here?{" "}
+          <a
+            href="http://docs.usedragonfly.xyz/"
+            target="_blank"
+            rel="noreferrer"
+            className="font-medium text-brand underline decoration-line2 underline-offset-4 hover:decoration-brand"
+          >
+            Read the docs
+          </a>{" "}
+          to get set up in a minute.
+        </p>
         <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
           {[
             "Free, no paid tier",

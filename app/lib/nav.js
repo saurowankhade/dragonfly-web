@@ -4,7 +4,7 @@
 
 export const VIEWS = [
   { href: "/", label: "Explorer", file: "welcome.md", ext: "md", icon: "explorer" },
-  { href: "/dragonfly", label: "Dragonfly", file: "new-request.http", ext: "http", icon: "dragonfly" },
+  { href: "/playground", label: "Playground", file: "new-request.http", ext: "http", icon: "playground" },
   { href: "/changelog", label: "Changelog", file: "changelog.md", ext: "md", icon: "history" },
 ];
 
@@ -27,7 +27,7 @@ export const releases = [
     iso: "2026-08-10",
     changes: [
       "Next.js App Router route groups are picked up by scanning.",
-      "Import from HAR captures saved in the browser devtools.",
+      "Paste a cURL command and the request form fills itself in.",
     ],
   },
   {
@@ -53,7 +53,7 @@ export const releases = [
     date: "August 6, 2026",
     iso: "2026-08-06",
     changes: [
-      "Import Thunder Client and Insomnia collections.",
+      "Import Postman collections, with folders and headers intact.",
       "Request history saved to the Activity view.",
     ],
   },
@@ -81,7 +81,7 @@ export const OUTLINES = {
     { id: "scope", label: "Scope" },
     { id: "faq", label: "FAQ" },
   ],
-  "/dragonfly": [
+  "/playground": [
     { id: "request", label: "Request" },
     { id: "response", label: "Response" },
   ],

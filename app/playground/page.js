@@ -6,8 +6,8 @@ const MARKETPLACE =
 export const metadata = {
   title: "API Request Playground – Try It in Your Browser",
   description:
-    "Try Dragonfly's request builder live: pick a method, set a URL, add headers, body and auth, press Send, and read the response — in your browser, no install.",
-  alternates: { canonical: "/dragonfly" },
+    "Try Dragonfly's request builder live: pick a method, set a URL, add headers, body and auth, press Send, and read the response, right in your browser.",
+  alternates: { canonical: "/playground" },
 };
 
 export default function DragonflyPage() {

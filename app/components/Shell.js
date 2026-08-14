@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   ExplorerIcon,
-  DragonflyIcon,
   HistoryIcon,
   DownloadIcon,
   ChevronDownIcon,
@@ -16,6 +15,7 @@ import {
   WarningIcon,
   BellIcon,
   GoogleDocIcon,
+  PlaygroundIcon,
 } from "./icons";
 
 const DOCS = "http://docs.usedragonfly.xyz/";
@@ -26,7 +26,7 @@ const MARKETPLACE =
 
 const ICONS = {
   explorer: ExplorerIcon,
-  dragonfly: DragonflyIcon,
+  playground: PlaygroundIcon,
   history: HistoryIcon,
 };
 
@@ -78,11 +78,7 @@ export default function Shell({ children }) {
                     on ? "border-brand text-ink" : "border-transparent text-muted hover:text-ink"
                   }`}
                 >
-                  {v.icon === "dragonfly" ? (
-                    <Image src="/dragonfly.png" alt="" width={24} height={24} className="rounded" />
-                  ) : (
-                    <Icon size={22} />
-                  )}
+                  <Icon size={22} />
                   <span className="pointer-events-none absolute left-[46px] top-1/2 z-50 hidden -translate-y-1/2 whitespace-nowrap rounded-md border border-line2 bg-bg px-2 py-1 text-xs text-ink group-hover:block">
                     {v.label}
                   </span>
@@ -128,8 +124,8 @@ export default function Shell({ children }) {
               <ChevronDownIcon size={14} />
               {active.href === "/changelog" ? (
                 <HistoryIcon size={14} className="text-brandink" />
-              ) : active.href === "/dragonfly" ? (
-                <Image src="/dragonfly.png" alt="" width={14} height={14} className="rounded-sm" />
+              ) : active.href === "/playground" ? (
+                <PlaygroundIcon size={14} className="text-[#8dc891]" />
               ) : (
                 <FileIcon size={14} className={active.ext === "http" ? "text-[#8dc891]" : "text-[#519aba]"} />
               )}
@@ -207,7 +203,7 @@ export default function Shell({ children }) {
 }
 
 function Tab({ view, active, showClose }) {
-  const isDragonfly = view.href === "/dragonfly";
+  const isPlayground = view.href === "/playground";
   const isChangelog = view.href === "/changelog";
   return (
     <Link
@@ -218,14 +214,14 @@ function Tab({ view, active, showClose }) {
           : "bg-panel2 text-muted hover:text-ink"
       }`}
     >
-      {isDragonfly ? (
-        <Image src="/dragonfly.png" alt="" width={14} height={14} className="rounded-sm" />
+      {isPlayground ? (
+        <PlaygroundIcon size={14} className="text-[#8dc891]" />
       ) : isChangelog ? (
         <HistoryIcon size={14} className="text-brandink" />
       ) : (
         <FileIcon size={14} className="text-[#519aba]" />
       )}
-      {isDragonfly ? "Dragonfly" : view.file}
+      {view.file}
       {showClose && <CloseIcon size={13} className="text-faint" />}
     </Link>
   );
