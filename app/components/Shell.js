@@ -20,6 +20,7 @@ import {
 
 const DOCS = "http://docs.usedragonfly.xyz/";
 import { VIEWS, OUTLINES } from "../lib/nav";
+import { COMPETITORS } from "../lib/vs";
 
 const MARKETPLACE =
   "https://marketplace.visualstudio.com/items?itemName=saurabhwankhade.dragonfly";
@@ -30,9 +31,33 @@ const ICONS = {
   history: HistoryIcon,
 };
 
+// Pages that aren't one of the fixed VIEWS still open as their own editor tab,
+// derived from the path, instead of falling back to welcome.md.
+function deriveView(pathname) {
+  if (pathname === "/privacy") {
+    return { href: "/privacy", label: "Privacy", file: "privacy.md", ext: "md" };
+  }
+  if (pathname.startsWith("/vs/")) {
+    const slug = pathname.slice(4);
+    const c = COMPETITORS[slug];
+    if (c) {
+      return {
+        href: pathname,
+        label: `Dragonfly vs ${c.name}`,
+        file: `dragonfly-vs-${slug}.md`,
+        ext: "md",
+      };
+    }
+  }
+  return null;
+}
+
 export default function Shell({ children }) {
   const pathname = usePathname();
-  const active = VIEWS.find((v) => v.href === pathname) || VIEWS[0];
+  const known = VIEWS.find((v) => v.href === pathname);
+  const extra = known ? null : deriveView(pathname);
+  const active = known || extra || VIEWS[0];
+  const tabs = extra ? [...VIEWS, extra] : VIEWS;
   const outline = OUTLINES[active.href] || [];
 
   return (
@@ -155,7 +180,7 @@ export default function Shell({ children }) {
         {/* Editor */}
         <div className="flex min-w-0 flex-col bg-bg">
           <div className="sticky top-9 z-20 flex h-9.5 items-stretch overflow-x-auto border-b border-line bg-panel">
-            {VIEWS.map((v) => (
+            {tabs.map((v) => (
               <Tab
                 key={v.href}
                 view={v}

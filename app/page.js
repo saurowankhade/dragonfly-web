@@ -191,7 +191,6 @@ export default function Home() {
           <a
             href="http://docs.usedragonfly.xyz/"
             target="_blank"
-            rel="noreferrer"
             className="font-medium text-brand underline decoration-line2 underline-offset-4 hover:decoration-brand"
           >
             Read the docs
@@ -388,6 +387,24 @@ export default function Home() {
         <p className="mt-3 font-mono text-xs text-faint">
           Comparison reflects the free, out-of-the-box experience of each tool.
         </p>
+        <p className="mt-4 text-sm text-muted">
+          Full breakdowns:{" "}
+          {[
+            { label: "vs Postman", href: "/vs/postman" },
+            { label: "vs Thunder Client", href: "/vs/thunder-client" },
+            { label: "vs Insomnia", href: "/vs/insomnia" },
+          ].map((l, i) => (
+            <span key={l.href}>
+              {i > 0 && " · "}
+              <a
+                href={l.href}
+                className="font-medium text-brand underline decoration-line2 underline-offset-4 hover:decoration-brand"
+              >
+                {l.label}
+              </a>
+            </span>
+          ))}
+        </p>
       </section>
 
       {/* scope */}
@@ -487,6 +504,16 @@ export default function Home() {
             className="font-medium text-brand underline decoration-line2 underline-offset-4 hover:decoration-brand"
           >
             saurowankhade@gmail.com
+          </a>
+          .
+        </p>
+        <p className="mt-3 text-sm text-muted">
+          Curious how your data is handled?{" "}
+          <a
+            href="/privacy"
+            className="font-medium text-brand underline decoration-line2 underline-offset-4 hover:decoration-brand"
+          >
+            Read the privacy note
           </a>
           .
         </p>
