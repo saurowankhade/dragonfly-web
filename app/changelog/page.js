@@ -1,6 +1,8 @@
 import { releases, versionId } from "../lib/nav";
 import { SITE_URL } from "../lib/content";
 import SubscribeForm from "../components/SubscribeForm";
+import JsonLd from "../components/JsonLd";
+import { graph, webPage, breadcrumb } from "../lib/jsonld";
 import { RssIcon } from "../components/icons";
 
 export const metadata = {
@@ -13,9 +15,23 @@ export const metadata = {
   },
 };
 
+const jsonLd = graph([
+  webPage({
+    path: "/changelog",
+    name: "Dragonfly Changelog",
+    description: metadata.description,
+    image: "/changelog/opengraph-image.png",
+  }),
+  breadcrumb([
+    { name: "Home", path: "/" },
+    { name: "Changelog", path: "/changelog" },
+  ]),
+]);
+
 export default function ChangelogPage() {
   return (
     <section>
+      <JsonLd data={jsonLd} />
       <p className="font-mono text-sm text-comment">{"// changelog.md"}</p>
 
       <div className="mt-3 flex items-center justify-between gap-4">

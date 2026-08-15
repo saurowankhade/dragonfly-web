@@ -1,4 +1,6 @@
 import { PRIVACY_SECTIONS } from "../lib/content";
+import JsonLd from "../components/JsonLd";
+import { graph, webPage, breadcrumb } from "../lib/jsonld";
 
 export const metadata = {
   title: "Privacy",
@@ -10,9 +12,22 @@ export const metadata = {
 const EMAIL = "saurowankhade@gmail.com";
 const sections = PRIVACY_SECTIONS;
 
+const jsonLd = graph([
+  webPage({
+    path: "/privacy",
+    name: "Privacy",
+    description: metadata.description,
+  }),
+  breadcrumb([
+    { name: "Home", path: "/" },
+    { name: "Privacy", path: "/privacy" },
+  ]),
+]);
+
 export default function PrivacyPage() {
   return (
     <section>
+      <JsonLd data={jsonLd} />
       <p className="font-mono text-sm text-comment">{"// privacy.md"}</p>
       <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
         Privacy

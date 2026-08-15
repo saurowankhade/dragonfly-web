@@ -1,5 +1,7 @@
 import { notFound } from "next/navigation";
 import { CheckIcon } from "../../components/icons";
+import JsonLd from "../../components/JsonLd";
+import { graph, webPage, breadcrumb } from "../../lib/jsonld";
 import { COMPETITORS, ROWS, vsSlugs } from "../../lib/vs";
 
 const MARKETPLACE =
@@ -33,8 +35,22 @@ export default async function VsPage({ params }) {
   const c = COMPETITORS[slug];
   if (!c) notFound();
 
+  const jsonLd = graph([
+    webPage({
+      path: `/vs/${slug}`,
+      name: `Dragonfly vs ${c.name}`,
+      description: c.lede,
+      image: `/vs/${slug}/opengraph-image`,
+    }),
+    breadcrumb([
+      { name: "Home", path: "/" },
+      { name: `Dragonfly vs ${c.name}`, path: `/vs/${slug}` },
+    ]),
+  ]);
+
   return (
     <section>
+      <JsonLd data={jsonLd} />
       <p className="font-mono text-sm text-comment">{`// dragonfly-vs-${slug}.md`}</p>
       <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
         Dragonfly vs {c.name}
