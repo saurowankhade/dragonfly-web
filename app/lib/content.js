@@ -1,4 +1,5 @@
 import { releases } from "./nav";
+import { COMPETITORS, ROWS } from "./vs";
 
 export const SITE_URL = "https://www.usedragonfly.xyz";
 export const DOCS_URL = "http://docs.usedragonfly.xyz/";
@@ -159,6 +160,8 @@ ${FAQS.map(([q, a]) => `### ${q}\n${a}`).join("\n\n")}
 - [Try a request](${SITE_URL}/playground.md): the in-editor request builder and how to test an API.
 - [Changelog](${SITE_URL}/changelog.md): release notes (also available as RSS at ${SITE_URL}/rss.xml).
 - [Documentation](${DOCS_URL}): guides and reference for using Dragonfly.
+- [Privacy](${SITE_URL}/privacy.md): local-first data handling, no account, no telemetry.
+- [Dragonfly vs Postman](${SITE_URL}/vs/postman.md), [vs Thunder Client](${SITE_URL}/vs/thunder-client.md), [vs Insomnia](${SITE_URL}/vs/insomnia.md): how Dragonfly compares and when to pick each.
 
 ## Key facts
 
@@ -168,5 +171,78 @@ ${FAQS.map(([q, a]) => `### ${q}\n${a}`).join("\n\n")}
 - Pricing: free, no paid tier, no telemetry, MIT licensed.
 - Platform: Visual Studio Code (Marketplace ID saurabhwankhade.dragonfly).
 - Contact: saurowankhade@gmail.com
+`;
+}
+
+export const PRIVACY_SECTIONS = [
+  {
+    id: "collect",
+    title: "What Dragonfly collects",
+    body: "Nothing. Dragonfly has no account, no sign in and no backend server. It does not send your requests, responses, collections, environments or usage anywhere, and it ships no analytics or telemetry.",
+  },
+  {
+    id: "storage",
+    title: "Where your data lives",
+    body: "Collections, environments and request history are saved in VS Code's own workspace and global storage on your machine. Auth secrets, such as bearer tokens, API keys and basic-auth passwords, go into VS Code secure storage (SecretStorage), never written into a collection file on disk.",
+  },
+  {
+    id: "requests",
+    title: "The requests you send",
+    body: "When you press Send, the request goes directly from your machine to the endpoint you chose. Dragonfly does not proxy, log or inspect that traffic. Where it goes, and what it contains, is entirely up to you.",
+  },
+  {
+    id: "thirdparty",
+    title: "Third parties",
+    body: "The extension itself talks to no third-party services. This website uses privacy-friendly, cookieless analytics to count page views. Installing from the Visual Studio Marketplace is governed by Microsoft's own terms and privacy policy.",
+  },
+  {
+    id: "contact",
+    title: "Questions",
+    body: "This is the whole policy: your data stays with you. If anything is unclear, or you spot something that should be tightened, get in touch.",
+  },
+];
+
+export function privacyMd() {
+  const body = PRIVACY_SECTIONS.map(
+    (s) => `## ${s.title}\n${s.body}`
+  ).join("\n\n");
+  return `# Dragonfly Privacy
+
+Dragonfly is local-first by design. There is no account to create and no server
+to send anything to. Here is exactly what that means.
+
+${body}
+
+Contact: saurowankhade@gmail.com
+`;
+}
+
+export function vsMd(slug) {
+  const c = COMPETITORS[slug];
+  if (!c) return null;
+  const edges = c.edges.map((e) => `- ${e}`).join("\n");
+  const tableHead = `| Feature | Dragonfly | ${c.name} |\n| --- | --- | --- |`;
+  const tableRows = ROWS.map(
+    (r) => `| ${r.label} | Yes | ${r[c.key] ? "Yes" : "No"} |`
+  ).join("\n");
+  return `# Dragonfly vs ${c.name}
+
+${c.lede}
+
+- Install: ${MARKETPLACE}
+- Quick Open: \`${INSTALL_CMD}\`
+- Docs: ${DOCS_URL}
+
+## Where Dragonfly is different
+
+${edges}
+
+## Side by side
+
+${tableHead}
+${tableRows}
+
+Comparison reflects the free, out-of-the-box experience of each tool.
+
 `;
 }

@@ -1,6 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import CopyCommand from "./components/CopyCommand";
+import JsonLd from "./components/JsonLd";
 import { CheckIcon } from "./components/icons";
+import { graph, webPage, faqPage } from "./lib/jsonld";
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
@@ -142,9 +145,20 @@ const faqs = [
   },
 ];
 
+const jsonLd = graph([
+  webPage({
+    path: "/",
+    name: "Dragonfly – REST API Client for VS Code",
+    description: metadata.description,
+    image: "/opengraph-image.png",
+  }),
+  faqPage(faqs.map((f) => [f.q, f.a])),
+]);
+
 export default function Home() {
   return (
     <>
+      <JsonLd data={jsonLd} />
       {/* welcome / hero */}
       <section>
         <p className="font-mono text-sm text-comment">
@@ -191,7 +205,6 @@ export default function Home() {
           <a
             href="http://docs.usedragonfly.xyz/"
             target="_blank"
-            rel="noreferrer"
             className="font-medium text-brand underline decoration-line2 underline-offset-4 hover:decoration-brand"
           >
             Read the docs
@@ -388,6 +401,24 @@ export default function Home() {
         <p className="mt-3 font-mono text-xs text-faint">
           Comparison reflects the free, out-of-the-box experience of each tool.
         </p>
+        <p className="mt-4 text-sm text-muted">
+          Full breakdowns:{" "}
+          {[
+            { label: "vs Postman", href: "/vs/postman" },
+            { label: "vs Thunder Client", href: "/vs/thunder-client" },
+            { label: "vs Insomnia", href: "/vs/insomnia" },
+          ].map((l, i) => (
+            <span key={l.href}>
+              {i > 0 && " · "}
+              <Link
+                href={l.href}
+                className="font-medium text-brand underline decoration-line2 underline-offset-4 hover:decoration-brand"
+              >
+                {l.label}
+              </Link>
+            </span>
+          ))}
+        </p>
       </section>
 
       {/* scope */}
@@ -488,6 +519,16 @@ export default function Home() {
           >
             saurowankhade@gmail.com
           </a>
+          .
+        </p>
+        <p className="mt-3 text-sm text-muted">
+          Curious how your data is handled?{" "}
+          <Link
+            href="/privacy"
+            className="font-medium text-brand underline decoration-line2 underline-offset-4 hover:decoration-brand"
+          >
+            Read the privacy note
+          </Link>
           .
         </p>
       </section>

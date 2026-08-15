@@ -4,7 +4,7 @@
 
 export const VIEWS = [
   { href: "/", label: "Explorer", file: "welcome.md", ext: "md", icon: "explorer" },
-  { href: "/playground", label: "Playground", file: "new-request.http", ext: "http", icon: "playground" },
+  { href: "/playground", label: "Playground", file: "playground", ext: "http", icon: "playground" },
   { href: "/changelog", label: "Changelog", file: "changelog.md", ext: "md", icon: "history" },
 ];
 

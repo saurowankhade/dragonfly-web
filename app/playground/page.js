@@ -1,4 +1,6 @@
 import RequestPlayground from "../components/RequestPlayground";
+import JsonLd from "../components/JsonLd";
+import { graph, webPage, breadcrumb } from "../lib/jsonld";
 
 const MARKETPLACE =
   "https://marketplace.visualstudio.com/items?itemName=saurabhwankhade.dragonfly";
@@ -10,9 +12,23 @@ export const metadata = {
   alternates: { canonical: "/playground" },
 };
 
+const jsonLd = graph([
+  webPage({
+    path: "/playground",
+    name: "API Request Playground",
+    description: metadata.description,
+    image: "/opengraph-image.png",
+  }),
+  breadcrumb([
+    { name: "Home", path: "/" },
+    { name: "Playground", path: "/playground" },
+  ]),
+]);
+
 export default function DragonflyPage() {
   return (
     <section>
+      <JsonLd data={jsonLd} />
       <div className="flex flex-wrap items-center gap-3">
         <p className="font-mono text-sm text-comment">{"// new-request.http"}</p>
         <span className="rounded-full border border-line2 bg-brandsoft px-2.5 py-0.5 font-mono text-xs text-brandink">
