@@ -225,14 +225,17 @@ export default function Home() {
         </ul>
 
         <figure className="mt-[clamp(1.75rem,4vw,2.75rem)] overflow-hidden rounded-xl border border-line2 bg-editor">
-          <Image
-            src="/product-shot.png"
-            alt="Dragonfly inside VS Code showing a GET request and its JSON response side by side"
-            width={2000}
-            height={1019}
-            className="block h-auto w-full"
-            priority
-          />
+          <div className="relative aspect-video w-full">
+            <iframe
+              className="absolute inset-0 h-full w-full"
+              src="https://www.youtube.com/embed/a1YAOh0nFrw?si=1d770lO16aReRorR"
+              title="Dragonfly – API testing inside VS Code"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
         </figure>
       </section>
 
