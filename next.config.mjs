@@ -20,6 +20,24 @@ const nextConfig = {
       },
     ];
   },
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          {
+            key: "Content-Signal",
+            value: "ai-train=yes, search=yes, ai-input=yes",
+          },
+          {
+            key: "Link",
+            value:
+              '</llms.txt>; rel="ai-content", </sitemap.xml>; rel="sitemap"',
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

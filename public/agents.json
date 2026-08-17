@@ -1,0 +1,21 @@
+{
+  "name": "Dragonfly",
+  "description": "A free, open-source REST API client that runs inside VS Code. Build and send requests, discover Express and Next.js routes in your workspace, import Postman/OpenAPI/cURL, and manage collections and environments without leaving your editor.",
+  "url": "https://www.usedragonfly.xyz",
+  "capabilities": [
+    "Build and send HTTP requests (method, URL, params, headers, body, auth) from the VS Code sidebar",
+    "Discover Express and Next.js routes (App Router and Pages Router) by scanning your workspace",
+    "Import Postman collections, OpenAPI/Swagger specs, and cURL commands",
+    "Manage collections and environments with {{variable}} substitution",
+    "Copy any request as cURL, Node.js, Python, Go, PHP, Java, or Rust",
+    "Keep collections, history, and secrets local to VS Code, with no account and no telemetry"
+  ],
+  "docs": "http://docs.usedragonfly.xyz/",
+  "ai_content": "https://www.usedragonfly.xyz/llms.txt",
+  "install": {
+    "marketplace": "https://marketplace.visualstudio.com/items?itemName=saurabhwankhade.dragonfly",
+    "command": "ext install saurabhwankhade.dragonfly"
+  },
+  "pricing": "Free. MIT licensed, no paid tier.",
+  "license": "MIT"
+}
