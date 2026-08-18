@@ -2,7 +2,7 @@ import { releases } from "./nav";
 import { COMPETITORS, ROWS } from "./vs";
 
 export const SITE_URL = "https://www.usedragonfly.xyz";
-export const DOCS_URL = "http://docs.usedragonfly.xyz/";
+export const DOCS_URL = "https://docs.usedragonfly.xyz/";
 export const MARKETPLACE =
   "https://marketplace.visualstudio.com/items?itemName=saurabhwankhade.dragonfly";
 export const INSTALL_CMD = "ext install saurabhwankhade.dragonfly";

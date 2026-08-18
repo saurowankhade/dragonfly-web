@@ -10,7 +10,7 @@
     "Copy any request as cURL, Node.js, Python, Go, PHP, Java, or Rust",
     "Keep collections, history, and secrets local to VS Code, with no account and no telemetry"
   ],
-  "docs": "http://docs.usedragonfly.xyz/",
+  "docs": "https://docs.usedragonfly.xyz/",
   "ai_content": "https://www.usedragonfly.xyz/llms.txt",
   "install": {
     "marketplace": "https://marketplace.visualstudio.com/items?itemName=saurabhwankhade.dragonfly",

@@ -4,7 +4,7 @@ const nextConfig = {
     return [
       {
         source: "/docs",
-        destination: "http://docs.usedragonfly.xyz/",
+        destination: "https://docs.usedragonfly.xyz/",
         permanent: false,
         basePath: false,
       },

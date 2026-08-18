@@ -6,7 +6,7 @@ import { COMPETITORS, ROWS, vsSlugs } from "../../lib/vs";
 
 const MARKETPLACE =
   "https://marketplace.visualstudio.com/items?itemName=saurabhwankhade.dragonfly";
-const DOCS_URL = "http://docs.usedragonfly.xyz/";
+const DOCS_URL = "https://docs.usedragonfly.xyz/";
 const SITE_URL = "https://www.usedragonfly.xyz";
 
 export function generateStaticParams() {

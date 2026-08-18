@@ -55,12 +55,12 @@ export default function ChangelogPage() {
       </p>
 
       {/* subscribe */}
-      <div id="subscribe" className="mt-[clamp(1.5rem,3vw,2rem)] scroll-mt-24">
+      {/* <div id="subscribe" className="mt-[clamp(1.5rem,3vw,2rem)] scroll-mt-24">
         <p className="mb-2 text-sm text-muted">
           Get release notes by email, or subscribe via RSS.
         </p>
-        {/* <SubscribeForm /> */}
-      </div>
+        <SubscribeForm />
+      </div> */}
 
       <div className="mt-[clamp(1.75rem,4vw,2.75rem)] flex flex-col gap-9">
         {releases.map((rel) => (

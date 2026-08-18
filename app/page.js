@@ -203,7 +203,7 @@ export default function Home() {
         <p className="mt-4 text-sm text-muted">
           New here?{" "}
           <a
-            href="http://docs.usedragonfly.xyz/"
+            href="https://docs.usedragonfly.xyz/"
             target="_blank"
             className="font-medium text-brand underline decoration-line2 underline-offset-4 hover:decoration-brand"
           >

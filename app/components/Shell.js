@@ -18,7 +18,7 @@ import {
   PlaygroundIcon,
 } from "./icons";
 
-const DOCS = "http://docs.usedragonfly.xyz/";
+const DOCS = "https://docs.usedragonfly.xyz/";
 import { VIEWS, OUTLINES } from "../lib/nav";
 import { COMPETITORS } from "../lib/vs";
 
