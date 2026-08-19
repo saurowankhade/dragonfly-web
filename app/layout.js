@@ -62,7 +62,7 @@ export const metadata = {
     siteName: "Dragonfly",
     title: "Dragonfly – The REST API Client Built Into VS Code",
     description:
-      "Send requests, organize collections, and pull API routes straight out of your Express and Next.js code, all inside VS Code. Free and open source.",
+      "Send requests, organize collections, and pull API routes straight out of your Express and Next.js code, all inside VS Code. Free.",
     locale: "en_US",
   },
   twitter: {
@@ -71,7 +71,7 @@ export const metadata = {
     creator: "@saurowankhade",
     title: "Dragonfly – REST API Client for VS Code",
     description:
-      "Test APIs and auto-discover your Express and Next.js routes without leaving VS Code. Free and open source.",
+      "Test APIs and auto-discover your Express and Next.js routes without leaving VS Code. Free.",
   },
   robots: {
     index: true,
