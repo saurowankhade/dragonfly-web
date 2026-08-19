@@ -14,10 +14,8 @@
   <img src="https://img.shields.io/badge/license-MIT-555" alt="MIT" />
 </p>
 
-<p align="center">
-  <img src="public/product-shot.png" alt="Dragonfly running inside VS Code, with a request and its JSON response side by side" width="880" />
-</p>
-
+https://github.com/user-attachments/assets/02a293c7-5e5f-4449-882d-c54350ed0000
+ 
 > **Beta.** This is still early, so expect rough edges. Bug reports and feedback are
 > very welcome at saurowankhade@gmail.com.
 
