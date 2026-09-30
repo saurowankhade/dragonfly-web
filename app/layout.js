@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import Shell from "./components/Shell";
 import { getExtensionVersion } from "./lib/version";
+import { getPostOutlines } from "./lib/blog";
 import "./globals.css";
 
 const geist = Geist({
@@ -151,7 +152,7 @@ export default async function RootLayout({ children }) {
         />
       </head>
       <body>
-        <Shell>{children}</Shell>
+        <Shell posts={getPostOutlines()}>{children}</Shell>
       </body>
     </html>
   );

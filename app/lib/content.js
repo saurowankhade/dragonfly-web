@@ -1,5 +1,6 @@
 import { releases } from "./nav";
 import { COMPETITORS, ROWS } from "./vs";
+import { getAllPosts, formatDate } from "./blog";
 
 export const SITE_URL = "https://www.usedragonfly.xyz";
 export const DOCS_URL = "https://docs.usedragonfly.xyz/";
@@ -163,6 +164,10 @@ ${FAQS.map(([q, a]) => `### ${q}\n${a}`).join("\n\n")}
 - [Documentation](${DOCS_URL}): guides and reference for using Dragonfly.
 - [Privacy](${SITE_URL}/privacy.md): local-first data handling, no account, no telemetry.
 - [Dragonfly vs Postman](${SITE_URL}/vs/postman.md), [vs Thunder Client](${SITE_URL}/vs/thunder-client.md), [vs Insomnia](${SITE_URL}/vs/insomnia.md): how Dragonfly compares and when to pick each.
+- [Blog](${SITE_URL}/blog.md): guides on testing APIs in VS Code.
+${getAllPosts()
+  .map((p) => `- [${p.title}](${SITE_URL}/blog/${p.slug}.md): ${p.description}`)
+  .join("\n")}
 
 ## Key facts
 
@@ -252,5 +257,37 @@ ${c.pickThem.map((p) => `- ${p}`).join("\n")}
 
 Pick Dragonfly if:
 ${c.pickUs.map((p) => `- ${p}`).join("\n")}
+`;
+}
+
+export function blogIndexMd() {
+  const posts = getAllPosts()
+    .map((p) => `- [${p.title}](${SITE_URL}/blog/${p.slug}.md) (${p.date}): ${p.description}`)
+    .join("\n");
+  return `# Dragonfly Blog
+
+Guides on testing APIs without leaving VS Code.
+Subscribe: ${SITE_URL}/blog/rss.xml
+
+${posts || "No posts yet."}
+`;
+}
+
+export function blogPostMd(post) {
+  return `# ${post.title}
+
+> ${post.description}
+
+Published ${formatDate(post.date)}${
+    post.updated !== post.date ? `, updated ${formatDate(post.updated)}` : ""
+  } by Saurabh Wankhade. Canonical: ${SITE_URL}/blog/${post.slug}
+
+${post.markdown}
+
+---
+
+Dragonfly is the API client for VS Code that reads your code.
+- Install: ${MARKETPLACE}
+- Docs: ${DOCS_URL}
 `;
 }

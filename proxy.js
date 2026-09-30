@@ -19,13 +19,25 @@ const MD_ROUTES = {
   "/vs/postman": "/vs/postman.md",
   "/vs/insomnia": "/vs/insomnia.md",
   "/vs/thunder-client": "/vs/thunder-client.md",
+  "/blog": "/blog.md",
 };
+
+const BLOG_POST = /^\/blog\/([a-z0-9-]+)(\.md)?$/;
 
 export function proxy(request) {
   const accept = request.headers.get("accept") || "";
-  const target = MD_ROUTES[request.nextUrl.pathname];
+  const { pathname } = request.nextUrl;
+  const wantsMd = accept.includes("text/markdown");
 
-  if (target && accept.includes("text/markdown")) {
+  const post = pathname.match(BLOG_POST);
+  if (post && (post[2] || wantsMd)) {
+    const response = NextResponse.rewrite(new URL(`/blog-md/${post[1]}`, request.url));
+    if (!post[2]) response.headers.set("Vary", "Accept");
+    return response;
+  }
+
+  const target = MD_ROUTES[pathname];
+  if (target && wantsMd) {
     const response = NextResponse.rewrite(new URL(target, request.url));
     response.headers.set("Vary", "Accept");
     return response;
@@ -43,5 +55,7 @@ export const config = {
     "/vs/postman",
     "/vs/insomnia",
     "/vs/thunder-client",
+    "/blog",
+    "/blog/:slug",
   ],
 };

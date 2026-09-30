@@ -16,6 +16,7 @@ import {
   BellIcon,
   GoogleDocIcon,
   PlaygroundIcon,
+  BlogIcon,
 } from "./icons";
 
 const DOCS = "https://docs.usedragonfly.xyz/";
@@ -29,13 +30,24 @@ const ICONS = {
   explorer: ExplorerIcon,
   playground: PlaygroundIcon,
   history: HistoryIcon,
+  blog: BlogIcon,
 };
 
 // Pages that aren't one of the fixed VIEWS still open as their own editor tab,
 // derived from the path, instead of falling back to welcome.md.
-function deriveView(pathname) {
+function deriveView(pathname, posts) {
   if (pathname === "/privacy") {
     return { href: "/privacy", label: "Privacy", file: "privacy.md", ext: "md" };
+  }
+  const post = posts[pathname];
+  if (post) {
+    return {
+      href: pathname,
+      label: post.title,
+      file: `${pathname.slice(6)}.md`,
+      ext: "md",
+      outline: post.outline,
+    };
   }
   if (pathname.startsWith("/vs/")) {
     const slug = pathname.slice(4);
@@ -52,13 +64,13 @@ function deriveView(pathname) {
   return null;
 }
 
-export default function Shell({ children }) {
+export default function Shell({ children, posts = {} }) {
   const pathname = usePathname();
   const known = VIEWS.find((v) => v.href === pathname);
-  const extra = known ? null : deriveView(pathname);
+  const extra = known ? null : deriveView(pathname, posts);
   const active = known || extra || VIEWS[0];
   const tabs = extra ? [...VIEWS, extra] : VIEWS;
-  const outline = OUTLINES[active.href] || [];
+  const outline = OUTLINES[active.href] || active.outline || [];
 
   return (
     <div className="flex min-h-dvh flex-col bg-bg">
@@ -91,7 +103,8 @@ export default function Shell({ children }) {
           <div className="flex flex-col gap-1">
             {VIEWS.map((v) => {
               const Icon = ICONS[v.icon];
-              const on = v.href === active.href;
+              const on =
+                v.href === active.href || (v.href === "/blog" && active.href.startsWith("/blog/"));
               return (
                 <Link
                   key={v.href}
@@ -149,6 +162,8 @@ export default function Shell({ children }) {
               <ChevronDownIcon size={14} />
               {active.href === "/changelog" ? (
                 <HistoryIcon size={14} className="text-brandink" />
+              ) : active.href === "/blog" ? (
+                <BlogIcon size={14} className="text-brandink" />
               ) : active.href === "/playground" ? (
                 <PlaygroundIcon size={14} className="text-[#8dc891]" />
               ) : (
@@ -230,6 +245,7 @@ export default function Shell({ children }) {
 function Tab({ view, active, showClose }) {
   const isPlayground = view.href === "/playground";
   const isChangelog = view.href === "/changelog";
+  const isBlog = view.href === "/blog";
   return (
     <Link
       href={view.href}
@@ -243,6 +259,8 @@ function Tab({ view, active, showClose }) {
         <PlaygroundIcon size={14} className="text-[#8dc891]" />
       ) : isChangelog ? (
         <HistoryIcon size={14} className="text-brandink" />
+      ) : isBlog ? (
+        <BlogIcon size={14} className="text-brandink" />
       ) : (
         <FileIcon size={14} className="text-[#519aba]" />
       )}

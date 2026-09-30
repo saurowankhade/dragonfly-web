@@ -48,3 +48,28 @@ export function faqPage(pairs) {
     })),
   };
 }
+
+
+export function blogPosting({ path, title, description, date, updated, image, tags }) {
+  const url = `${SITE_URL}${path}`;
+  return {
+    "@type": "BlogPosting",
+    "@id": `${url}#article`,
+    headline: title,
+    description,
+    url,
+    mainEntityOfPage: { "@id": `${url}#webpage` },
+    datePublished: date,
+    dateModified: updated,
+    author: {
+      "@type": "Person",
+      name: "Saurabh Wankhade",
+      url: "https://sauro.dev",
+    },
+    publisher: { "@id": `${SITE_URL}/#org` },
+    about: { "@id": `${SITE_URL}/#app` },
+    image: `${SITE_URL}${image}`,
+    keywords: tags.join(", "),
+    inLanguage: "en",
+  };
+}

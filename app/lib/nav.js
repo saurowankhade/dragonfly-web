@@ -6,6 +6,7 @@ export const VIEWS = [
   { href: "/", label: "Explorer", file: "welcome.md", ext: "md", icon: "explorer" },
   { href: "/playground", label: "Playground", file: "playground", ext: "http", icon: "playground" },
   { href: "/changelog", label: "Changelog", file: "changelog.md", ext: "md", icon: "history" },
+  { href: "/blog", label: "Blog", file: "blog", ext: "md", icon: "blog" },
 ];
 
 export const releases = [
