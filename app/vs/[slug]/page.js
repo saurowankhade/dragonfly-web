@@ -128,6 +128,31 @@ export default async function VsPage({ params }) {
           Comparison reflects the free, out-of-the-box experience of each tool.
         </p>
       </section>
+
+      <section className="mt-[clamp(2.5rem,5vw,4rem)] scroll-mt-24 border-t border-line pt-[clamp(2.25rem,4vw,3.25rem)]">
+        <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+          <span className="mr-1 font-mono font-normal text-brand">#</span>
+          When to pick each
+        </h2>
+        <div className="mt-5 grid gap-px overflow-hidden rounded-lg border border-line bg-line md:grid-cols-2">
+          {[
+            { title: `Pick ${c.name} if`, items: c.pickThem },
+            { title: "Pick Dragonfly if", items: c.pickUs },
+          ].map((col) => (
+            <div key={col.title} className="bg-bg p-5">
+              <h3 className="text-lg font-semibold">{col.title}</h3>
+              <ul className="mt-3 flex flex-col gap-2">
+                {col.items.map((it) => (
+                  <li key={it} className="flex gap-2.5 text-sm text-muted">
+                    <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-brand" />
+                    <span>{it}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
     </section>
   );
 }

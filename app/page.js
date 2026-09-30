@@ -7,9 +7,9 @@ import { graph, webPage, faqPage } from "./lib/jsonld";
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
-  title: "REST API Client for VS Code",
+  title: { absolute: "Dragonfly – API Client for VS Code That Reads Your Code" },
   description:
-    "Test APIs without leaving VS Code. Send requests, save collections, import from Postman, OpenAPI and cURL, and auto-discover Express and Next.js routes. Free.",
+    "A free REST API client for VS Code. Dragonfly scans your Express and Next.js routes and builds ready-to-send requests, organized like your project.",
   alternates: { canonical: "/" },
 };
 
@@ -42,6 +42,9 @@ const features = [
 
 const sources = [
   "Postman collections",
+  "Thunder Client collections",
+  "Insomnia exports",
+  "HAR files",
   "OpenAPI and Swagger",
   "cURL commands",
 ];
@@ -132,8 +135,8 @@ const faqs = [
     a: "Install Dragonfly and open it from the Activity Bar. Build the request in the sidebar with a method, URL, headers, body and auth, then press Send. The response opens next to your code, so there is no second app to switch to.",
   },
   {
-    q: "Can I import my Postman collection?",
-    a: "Yes, and not only Postman. Import from a Postman collection, an OpenAPI or Swagger spec, or a single cURL command. Run Import Collection and the format is detected for you. Folders, headers, query params and bodies come across, and live credentials are left out on purpose.",
+    q: "Can I import my Postman or Thunder Client collection?",
+    a: "Yes. Import from a Postman collection, a Thunder Client collection, an Insomnia export, a HAR file, an OpenAPI or Swagger spec, or a single cURL command. Run Import Collection and the format is detected for you. Folders, headers, query params and bodies come across, and live credentials are left out on purpose.",
   },
   {
     q: "Can it find the API routes in my project automatically?",
@@ -148,7 +151,7 @@ const faqs = [
 const jsonLd = graph([
   webPage({
     path: "/",
-    name: "Dragonfly – REST API Client for VS Code",
+    name: "Dragonfly – API Client for VS Code That Reads Your Code",
     description: metadata.description,
     image: "/opengraph-image.png",
   }),
@@ -174,18 +177,20 @@ export default function Home() {
             priority
           />
           <div className="min-w-0">
-            <h1 className="text-4xl font-semibold leading-none tracking-tight sm:text-6xl">
-              Dragonfly
+            <h1>
+              <span className="block text-4xl font-semibold leading-none tracking-tight sm:text-6xl">
+                Dragonfly
+              </span>
+              <span className="mt-1.5 block font-mono text-base font-normal text-muted">
+                The API client for VS Code that reads your code
+              </span>
             </h1>
-            <p className="mt-1.5 font-mono text-base text-muted">
-              API testing inside VS Code, without leaving your codebase
-            </p>
           </div>
         </div>
         <p className="mt-6 text-lg text-inksoft">
-          Dragonfly reads your Express and Next.js code and turns your routes
-          into ready-to-send requests. Build, send and inspect them right next
-          to your code. No second app, and nothing ever leaves your machine.
+          Dragonfly turns your Express and Next.js routes into ready-to-send
+          requests, organized like your project. Build, send and inspect them
+          right next to your code. No second app, and nothing ever leaves your machine.
         </p>
         <p className="mt-3 font-mono text-sm text-comment">
           {"// tip: open the Dragonfly tab in the sidebar to try a request"}

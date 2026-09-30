@@ -65,6 +65,16 @@ export const COMPETITORS = {
       "Everything stays on your machine, with no telemetry.",
       "Free and MIT licensed, with no paid tier gating features.",
     ],
+    pickThem: [
+      "Your team shares workspaces and collections in the cloud.",
+      "You rely on mock servers, monitors or scheduled collection runs.",
+      "You write pre-request and test scripts and run them in CI.",
+    ],
+    pickUs: [
+      "You work solo or in small teams and live in VS Code.",
+      "Your API is built with Express or Next.js and you want requests generated from it.",
+      "You want no account, no sync and nothing leaving your machine.",
+    ],
   },
   "thunder-client": {
     name: "Thunder Client",
@@ -76,6 +86,15 @@ export const COMPETITORS = {
       "Auth secrets live in VS Code secure storage, never a JSON file.",
       "Free and MIT licensed, with nothing held back behind a paid plan.",
     ],
+    pickThem: [
+      "You already have a large Thunder Client setup and its scripting works for you.",
+      "You need features from its paid plans, such as team sync or its CLI.",
+    ],
+    pickUs: [
+      "You want your Express or Next.js routes turned into requests automatically.",
+      "You want collections organized the same way as your code.",
+      "You want everything free, with auth secrets in VS Code secure storage. Your Thunder Client collections import directly.",
+    ],
   },
   insomnia: {
     name: "Insomnia",
@@ -86,6 +105,16 @@ export const COMPETITORS = {
       "Scan your Express and Next.js code to build requests automatically.",
       "Local-first: no account, no sign in, no telemetry.",
       "Free and MIT licensed.",
+    ],
+    pickThem: [
+      "You work heavily with GraphQL, gRPC or WebSockets.",
+      "You design APIs spec-first and edit OpenAPI documents in the client.",
+      "You prefer a standalone desktop app outside your editor.",
+    ],
+    pickUs: [
+      "You test REST endpoints while writing them, in VS Code.",
+      "Your API is built with Express or Next.js and you want requests generated from it.",
+      "You want to bring your Insomnia export along and keep working in the editor.",
     ],
   },
 };

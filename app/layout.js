@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import Shell from "./components/Shell";
+import { getExtensionVersion } from "./lib/version";
 import "./globals.css";
 
 const geist = Geist({
@@ -21,11 +22,11 @@ const SITE_URL = "https://www.usedragonfly.xyz";
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Dragonfly – REST API Client for VS Code",
+    default: "Dragonfly – API Client for VS Code That Reads Your Code",
     template: "%s | Dragonfly",
   },
   description:
-    "A free REST API client inside VS Code. Send requests, save collections, import from Postman, OpenAPI and cURL, and auto-discover Express and Next.js routes.",
+    "A free REST API client for VS Code. Dragonfly scans your Express and Next.js routes and builds ready-to-send requests, organized like your project.",
   keywords: [
     "rest api client for vs code",
     "api client for vs code",
@@ -60,18 +61,18 @@ export const metadata = {
     type: "website",
     url: SITE_URL,
     siteName: "Dragonfly",
-    title: "Dragonfly – The REST API Client Built Into VS Code",
+    title: "Dragonfly – API Client for VS Code That Reads Your Code",
     description:
-      "Send requests, organize collections, and pull API routes straight out of your Express and Next.js code, all inside VS Code. Free.",
+      "Dragonfly turns your Express and Next.js routes into ready-to-send requests, organized like your project. Free, inside VS Code.",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
     site: "@saurowankhade",
     creator: "@saurowankhade",
-    title: "Dragonfly – REST API Client for VS Code",
+    title: "Dragonfly – API Client for VS Code That Reads Your Code",
     description:
-      "Test APIs and auto-discover your Express and Next.js routes without leaving VS Code. Free.",
+      "Dragonfly turns your Express and Next.js routes into ready-to-send requests, organized like your project. Free.",
   },
   robots: {
     index: true,
@@ -91,54 +92,52 @@ export const viewport = {
   initialScale: 1,
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": `${SITE_URL}/#org`,
-      name: "Dragonfly",
-      url: SITE_URL,
-      logo: `${SITE_URL}/dragonfly.png`,
-      sameAs: [
-        "https://x.com/saurowankhade",
-        "https://linkedin.com/in/saurowankhade",
-        "https://peerlist.io/saurowankhade",
-        "https://sauro.dev",
-      ],
-    },
-    {
-      "@type": "WebSite",
-      "@id": `${SITE_URL}/#website`,
-      name: "Dragonfly",
-      url: SITE_URL,
-      publisher: { "@id": `${SITE_URL}/#org` },
-      inLanguage: "en",
-    },
-    {
-      "@type": "SoftwareApplication",
-      "@id": `${SITE_URL}/#app`,
-      name: "Dragonfly",
-      applicationCategory: "DeveloperApplication",
-      operatingSystem: "Visual Studio Code",
-      url: SITE_URL,
-      publisher: { "@id": `${SITE_URL}/#org` },
-      description:
-        "A REST API client for VS Code. Send requests, organize collections, import from Postman, OpenAPI/Swagger and cURL, and scan Express and Next.js code for routes, foldered to match your codebase.",
-      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-      softwareVersion: "0.0.6",
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.6",
-        ratingCount: "10",
-        bestRating: "5",
-        worstRating: "1",
+function buildJsonLd(version) {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${SITE_URL}/#org`,
+        name: "Dragonfly",
+        url: SITE_URL,
+        logo: `${SITE_URL}/dragonfly.png`,
+        sameAs: [
+          "https://x.com/saurowankhade",
+          "https://linkedin.com/in/saurowankhade",
+          "https://peerlist.io/saurowankhade",
+          "https://sauro.dev",
+        ],
       },
-    },
-  ],
-};
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        name: "Dragonfly",
+        url: SITE_URL,
+        publisher: { "@id": `${SITE_URL}/#org` },
+        inLanguage: "en",
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": `${SITE_URL}/#app`,
+        name: "Dragonfly",
+        applicationCategory: "DeveloperApplication",
+        operatingSystem: "Visual Studio Code",
+        url: SITE_URL,
+        publisher: { "@id": `${SITE_URL}/#org` },
+        description:
+          "A REST API client for VS Code. Send requests, organize collections, import from Postman, Thunder Client, Insomnia, HAR, OpenAPI/Swagger and cURL, and scan Express and Next.js code for routes, foldered to match your codebase.",
+        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+        ...(version ? { softwareVersion: version } : {}),
+        downloadUrl:
+          "https://marketplace.visualstudio.com/items?itemName=saurabhwankhade.dragonfly",
+      },
+    ],
+  };
+}
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const jsonLd = buildJsonLd(await getExtensionVersion());
   return (
     <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
       <head>

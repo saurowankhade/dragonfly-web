@@ -11,7 +11,7 @@ export const FEATURES = [
   "Request builder: method, URL, params, headers, body and auth, docked in the Activity Bar.",
   "Route discovery: scan a workspace for Express and Next.js routes (App Router and Pages Router) and build a collection from them.",
   "Collections foldered to match your codebase structure.",
-  "Collection import: Postman collections, with folders, headers, query params and bodies intact.",
+  "Collection import: Postman, Thunder Client and Insomnia collections, plus HAR files, with folders, headers, query params and bodies intact.",
   "OpenAPI and Swagger import: one request per operation, grouped into folders by tag.",
   "cURL import: paste a command and the form fills itself in.",
   "Environments with {{variable}} substitution, one click to switch.",
@@ -31,7 +31,7 @@ const FAQS = [
   ],
   [
     "Which frameworks does route discovery support?",
-    "Express and Next.js, covering both the App Router and the Pages Router. For anything else, import an OpenAPI or Swagger spec, a Postman collection, or a cURL command.",
+    "Express and Next.js, covering both the App Router and the Pages Router. For anything else, import an OpenAPI or Swagger spec, a Postman, Thunder Client or Insomnia collection, a HAR file, or a cURL command.",
   ],
   [
     "Where does my data go?",
@@ -41,10 +41,11 @@ const FAQS = [
 ];
 
 export function welcomeMd() {
-  return `# Dragonfly: REST API Client for VS Code
+  return `# Dragonfly: The API Client for VS Code That Reads Your Code
 
-Send HTTP requests, organize them into collections, and pull the API routes you
-already wrote straight out of your codebase. All without leaving the editor.
+Dragonfly turns your Express and Next.js routes into ready-to-send requests,
+organized like your project. Send, save and inspect them without leaving the
+editor.
 
 - Install: ${MARKETPLACE}
 - Quick Open: \`${INSTALL_CMD}\`
@@ -112,10 +113,10 @@ ${body}
 export function llmsTxt() {
   return `# Dragonfly
 
-> Dragonfly is a free, REST API client that runs inside Visual Studio
-> Code. It sends HTTP requests, organizes them into collections, and can scan your
-> Express and Next.js codebase to build a collection of requests automatically,
-> foldered to match your project. Everything stays on the user's machine: no
+> Dragonfly is a free REST API client for VS Code that reads your Express and
+> Next.js code and builds requests, organized to match your project. It also sends
+> HTTP requests, organizes them into collections, and imports from Postman, Thunder
+> Client, Insomnia, OpenAPI and cURL. Everything stays on the user's machine: no
 > account, no server, no telemetry.
 
 ## What it does
@@ -167,7 +168,7 @@ ${FAQS.map(([q, a]) => `### ${q}\n${a}`).join("\n\n")}
 
 - Category: developer tool, VS Code extension, REST API client, Postman alternative.
 - Differentiators: builds requests by scanning Express and Next.js code; collection folders mirror your codebase; auth secrets in VS Code secure storage; free and MIT licensed.
-- Imports: Postman collections, OpenAPI/Swagger, cURL.
+- Imports: Postman, Thunder Client and Insomnia collections, HAR files, OpenAPI/Swagger, cURL.
 - Pricing: free, no paid tier, no telemetry, MIT licensed.
 - Platform: Visual Studio Code (Marketplace ID saurabhwankhade.dragonfly).
 - Contact: saurowankhade@gmail.com
@@ -244,5 +245,12 @@ ${tableRows}
 
 Comparison reflects the free, out-of-the-box experience of each tool.
 
+## When to pick each
+
+Pick ${c.name} if:
+${c.pickThem.map((p) => `- ${p}`).join("\n")}
+
+Pick Dragonfly if:
+${c.pickUs.map((p) => `- ${p}`).join("\n")}
 `;
 }
